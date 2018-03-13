@@ -1,0 +1,4 @@
+[debug] Copy resource mappings: 
+[debug] 	(/Users/adnan/git/Project/conf/logback.xml,/Users/adnan/git/Project/target/scala-2.12/classes/logback.xml)
+[debug] 	(/Users/adnan/git/Project/conf/application.conf,/Users/adnan/git/Project/target/scala-2.12/classes/application.conf)
+[debug] 	(/Users/adnan/git/Project/conf/routes,/Users/adnan/git/Project/target/scala-2.12/classes/routes)
