@@ -1,5 +1,6 @@
 import React from 'react';
 
+import Root from '../Root';
 import SubHeader from '../SubHeader';
 import EventDisplay from './EventDisplay';
 

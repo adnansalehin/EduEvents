@@ -51,6 +51,11 @@ var style = {
 //Navigation bar component with styling. This will be rendered for every route page.
 //Components using the same radium style element need unique keys (e.g key="x")!
 class Header extends React.Component {
+
+  constructor(props) {
+    super(props);
+  }
+
   render() {
     return (
       <div style={style.body}>
@@ -58,9 +63,9 @@ class Header extends React.Component {
           <Link to={"/"} style={style.brandName}><h1>EduEvents</h1></Link>
           <ul>
             <div style={style.nav}>
-              <li key="1" style={style.list}><Link to={"/sign_in"} style={style.listElement}>Sign in</Link></li>
-              <li key="2" style={style.list}><Link to={"/sign_up"} style={style.listElement}>Sign up</Link></li>
-              <li key="3" style={style.list}><Link to={"/about"} style={style.listElement}>About</Link></li>
+              <li key="1" style={style.list}><Link to={this.props.element1Link} style={style.listElement}>{this.props.element1}</Link></li>
+              <li key="2" style={style.list}><Link to={this.props.element2Link} style={style.listElement}>{this.props.element2}</Link></li>
+              <li key="3" style={style.list}><Link to={this.props.element3Link} style={style.listElement}>{this.props.element3}</Link></li>
             </div>
           </ul>
         </nav>

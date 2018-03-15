@@ -6,11 +6,14 @@ import {
   browserHistory
 } from 'react-router-dom';
 
-import Root from "./components/Root";
-import Home from "./components/Home/Home";
-import About from "./components/About";
-import SignIn from "./components/SignIn";
-import SignUp from "./components/SignUp";
+import Root from './components/Root';
+import Home from './components/Home/Home';
+import About from './components/About';
+import SignIn from './components/SignIn';
+import SignUp from './components/SignUp';
+
+import MemberHome from './components/MemberInterface/MemberHome';
+import MemberAccount from './components/MemberInterface/MemberAccount/MemberAccount';
 
 //Components to be rendered
 //Root renders a header and footer, where children can be passed as parameters.
@@ -64,6 +67,8 @@ class App extends Component {
           <Route exact path="/sign_in" component={signIn} />
           <Route exact path="/sign_up" component={signUp} />
           <Route exact path="/about" component={about} />
+          <Route exact path="/memberID" component={MemberHome} />
+          <Route exact path="/memberID/account" component={MemberAccount} />
         </div>
       </Router>
     );
