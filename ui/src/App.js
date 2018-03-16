@@ -14,6 +14,10 @@ import SignUp from './components/SignUp';
 
 import MemberHome from './components/MemberInterface/MemberHome';
 import MemberAccount from './components/MemberInterface/MemberAccount/MemberAccount';
+import MyEvents from './components/MemberInterface/MemberEvents/MyEvents';
+import BookedEvents from './components/MemberInterface/MemberEvents/BookedEvents';
+import FavouritedEvents from './components/MemberInterface/MemberEvents/FavouritedEvents';
+import CreateEvents from './components/MemberInterface/MemberEvents/CreateEvents';
 
 //Components to be rendered
 //Root renders a header and footer, where children can be passed as parameters.
@@ -69,6 +73,10 @@ class App extends Component {
           <Route exact path="/about" component={about} />
           <Route exact path="/memberID" component={MemberHome} />
           <Route exact path="/memberID/account" component={MemberAccount} />
+          <Route exact path="/memberID/my_events" component={MyEvents} />
+          <Route exact path="/memberID/booked_events" component={BookedEvents} />
+          <Route exact path="/memberID/favourited_events" component={FavouritedEvents} />
+          <Route exact path="/memberID/create_events" component={CreateEvents} />
         </div>
       </Router>
     );

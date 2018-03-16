@@ -4,9 +4,9 @@
     "\\ui",
     "\\ui\\src",
     "\\ui\\src\\components",
-    "\\ui\\src\\components\\MemberInterface",
-    "\\ui\\src\\components\\MemberInterface\\MemberAccount"
+    "\\ui\\src\\components\\Home",
+    "\\ui\\src\\components\\MemberInterface"
   ],
-  "SelectedNode": "\\ui\\src\\components\\MemberInterface\\MemberAccount\\MemberAccount.js",
+  "SelectedNode": "\\ui\\src\\components\\MemberInterface\\MemberRoot.js",
   "PreviewInSolutionExplorer": false
 }
