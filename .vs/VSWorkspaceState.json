@@ -7,6 +7,10 @@
     "\\ui\\src\\components\\Home",
     "\\ui\\src\\components\\MemberInterface"
   ],
+<<<<<<< HEAD
   "SelectedNode": "\\ui\\src\\components\\MemberInterface\\MemberRoot.js",
+=======
+  "SelectedNode": "\\ui\\src\\components\\MemberInterface",
+>>>>>>> master
   "PreviewInSolutionExplorer": false
 }
