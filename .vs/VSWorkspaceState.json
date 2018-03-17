@@ -1,0 +1,14 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\ui",
+    "\\ui\\src",
+    "\\ui\\src\\components",
+    "\\ui\\src\\components\\Home",
+    "\\ui\\src\\components\\MemberInterface",
+    "\\ui\\src\\components\\MemberInterface\\MemberAccount",
+    "\\ui\\src\\reducers"
+  ],
+  "SelectedNode": "\\ui\\src\\App.js",
+  "PreviewInSolutionExplorer": false
+}

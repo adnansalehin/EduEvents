@@ -51,11 +51,6 @@ var style = {
 //Navigation bar component with styling. This will be rendered for every route page.
 //Components using the same radium style element need unique keys (e.g key="x")!
 class Header extends React.Component {
-
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     return (
       <div style={style.body}>
