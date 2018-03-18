@@ -4,7 +4,7 @@
 		module="eduevents-build"
 		revision="0.1-SNAPSHOT"
 		status="integration"
-		publication="20180315111436"
+		publication="20180318094103"
 		e:sbtVersion="1.0" e:scalaVersion="2.12"
 	>
 		<description>
