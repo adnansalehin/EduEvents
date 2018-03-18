@@ -1,6 +1,5 @@
 import React from 'react';
 
-import Root from '../Root';
 import SubHeader from '../SubHeader';
 import EventDisplay from './EventDisplay';
 
@@ -15,11 +14,6 @@ const style = {
 }
 
 class Home extends React.Component {
-
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     return (
       <div style={style.body}>

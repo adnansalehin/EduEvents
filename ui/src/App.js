@@ -2,8 +2,6 @@ import React, {Component} from 'react';
 import {
   BrowserRouter as Router,
   Route,
-  Link,
-  browserHistory
 } from 'react-router-dom';
 
 import Root from './components/Root';
