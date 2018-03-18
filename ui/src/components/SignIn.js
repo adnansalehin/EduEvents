@@ -49,7 +49,7 @@ const SignIn = () => {
             <li style={style.fields}><input type="text" placeholder="username" style={style.input} /></li>
             <li style={style.fields}><input type="password" placeholder="password" style={style.input} /></li>
           </div>
-          <li style={[style.button, style.fields]}><button>Login</button></li>
+          <li style={[style.button, style.fields]}><button type="submit">Login</button></li>
         </ul>
         <ul style={style.list}>
           <div>
