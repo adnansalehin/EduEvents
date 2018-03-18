@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Root from './Root';
+import SignUpForm from './SignUpForm';
 import SubHeader from './SubHeader';
 
 const style = {
@@ -13,12 +13,18 @@ const style = {
   }
 }
 
-const SignUp = () => {
-  return (
-    <div style={style.body}>
-      <SubHeader subheader="Create an account" />
-    </div>
-  );
+class SignUp extends React.Component {
+  render() {
+
+    const { userSignupRequest } = this.props;
+
+    return (
+      <div style={style.body}>
+        <SubHeader subheader="Create an account" />
+        <SignUpForm userSignupRequest={userSignupRequest} />
+      </div>
+    );
+  }
 }
 
 export default SignUp;

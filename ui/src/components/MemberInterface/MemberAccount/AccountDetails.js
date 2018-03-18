@@ -23,11 +23,6 @@ var style = {
 }
 
 class AccountDetails extends React.Component {
-
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     return (
       <div style={style.body}>

@@ -6,11 +6,6 @@ import Footer from './Footer';
 //Used as a default component, which you then pass the content in children.
 //Here the default components are the header and footer.
 class Root extends React.Component {
-
-  constructor(props) {
-    super(props);
-  };
-
   render() {
     return (
       <div>
