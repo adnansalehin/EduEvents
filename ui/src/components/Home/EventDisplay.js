@@ -40,10 +40,18 @@ class EventDisplay extends React.Component {
     return (
       <div style={style.body}>
         <a>
-          <img src={arrowButton} style={[style.button, style.leftButton]} />
+          <img
+            src={arrowButton}
+            style={[style.button, style.leftButton]}
+            alt=""
+          />
         </a> 
         <a>
-          <img src={arrowButton} style={[style.button, style.rightButton]} />
+          <img
+            src={arrowButton}
+            style={[style.button, style.rightButton]}
+            alt=""
+          />
         </a> 
         <EventInfo />
       </div>

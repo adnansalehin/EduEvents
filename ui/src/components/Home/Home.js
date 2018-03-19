@@ -15,7 +15,7 @@ const style = {
     backgroundRepeat: 'no-repeat',
     backgroundSize: '155%',
     width: '100%',
-    height: '100vh'
+    height: '100vh',
   },
 
   featuredContainer: {
@@ -38,11 +38,10 @@ const style = {
     position: 'relative',
     top: '-435px',
     float: 'right',
-    marginRight: '350px'
+    marginRight: '350px',
   },
 
   searchHeader: {
-    backgroundColor: 'gray',
     backgroundColor: '#3baf36',
     textShadow: '2px 2px gray',
     padding: '10px',
