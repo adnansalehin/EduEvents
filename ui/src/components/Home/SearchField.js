@@ -12,10 +12,13 @@ var style = {
 
   selectList: {
     position: 'relative',
-    width: '50%',
+    width: '75%',
     marginLeft: '100%',
     float: 'right',
     marginBottom: '10%',
+    padding: '5px 10px 5px 10px',
+    borderRadius: '5px',
+    border: '0'
   },
 
   searchButton: {
