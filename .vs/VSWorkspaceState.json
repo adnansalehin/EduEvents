@@ -1,12 +1,16 @@
 {
   "ExpandedNodes": [
     "",
+    "\\app",
+    "\\app\\controllers",
+    "\\app\\inventories",
     "\\ui",
     "\\ui\\src",
     "\\ui\\src\\components",
     "\\ui\\src\\components\\Home",
-    "\\ui\\src\\components\\MemberInterface"
+    "\\ui\\src\\components\\MemberInterface",
+    "\\ui\\src\\res"
   ],
-  "SelectedNode": "\\ui\\src\\components\\About.js",
+  "SelectedNode": "\\ui\\src\\components\\Home\\SearchField.js",
   "PreviewInSolutionExplorer": false
 }
