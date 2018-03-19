@@ -6,7 +6,8 @@ var style = {
   form: {
     position: 'relative',
     marginLeft: '350px',
-    top: '2%'
+    top: '2%',
+    width: '16%'
   }
 }
 
