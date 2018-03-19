@@ -10,7 +10,7 @@ const style = {
   subHeader: {
     color: 'white',
     position: 'relative',
-    marginLeft: '350px',
+    marginLeft: '250px',
     top: '32%'
   }
 }

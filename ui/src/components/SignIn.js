@@ -15,7 +15,7 @@ var style = {
 
   container: {
     position: 'relative',
-    marginLeft: '350px',
+    marginLeft: '250px',
     top: '5%'
   },
 

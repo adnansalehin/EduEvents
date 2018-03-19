@@ -13,7 +13,7 @@ const style = {
   footer: {
     color: 'white',
     float: 'right',
-    marginRight: '350px'
+    marginRight: '250px'
   }
 }
 

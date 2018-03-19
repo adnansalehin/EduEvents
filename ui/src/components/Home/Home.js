@@ -13,41 +13,45 @@ const style = {
     backgroundImage: 'url(' + backgroundPicture + ')',
     backgroundPosition: 'center',
     backgroundRepeat: 'no-repeat',
-    backgroundSize: '155%',
+    backgroundSize: '170%',
     width: '100%',
-    height: '100vh',
+    height: '110vh',
+    marginRight: '250px',
+
   },
 
   featuredContainer: {
     position: 'relative',
     top: '8%',
+    margin: '0'
   },
 
   featuredHeader: {
-    marginLeft: '350px',
+    margin: '0',
+    marginLeft: '250px',
     backgroundColor: '#3baf36',
     textShadow: '2px 2px gray',
     width: '312px',
     padding: '10px',
     borderRadius: '10px 10px 0 0',
     border: 'solid 2px black',
-    marginBottom: '0',
   },
 
   searchContainer: {
-    position: 'relative',
-    top: '-435px',
-    float: 'right',
-    marginRight: '350px',
+    position: 'absolute',
+    right: '250px',
+    top: '180px',
+    margin: '0'
   },
 
   searchHeader: {
+    marginTop: '100px',
     backgroundColor: '#3baf36',
     textShadow: '2px 2px gray',
     padding: '10px',
     borderRadius: '10px 10px 0 0',
     border: 'solid 2px black',
-    marginBottom: '0'
+    margin: '0'
   }
 }
 

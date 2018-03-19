@@ -10,7 +10,7 @@ var style = {
 
   eventMain: {
     position: 'relative',
-    top: '140px',
+    top: '100px',
     paddingBottom: '10px'
   },
 
@@ -29,10 +29,10 @@ const EventInfo = () => {
     <div style={style.container}>
       <div style={style.eventMain}>
         <h2 style={style.eventTitle}>Event name</h2>
-        <h5>This is a description. This is a description. This is a description. This is a description. This is a description.</h5>
+        <h6>This is a description. This is a description. This is a description. This is a description. This is a description.</h6>
       </div>
       <div style={style.eventDetails}>
-        <h4>Time</h4>
+        <h4>Time, date</h4>
         <h4>Location</h4>
       </div>
     </div>

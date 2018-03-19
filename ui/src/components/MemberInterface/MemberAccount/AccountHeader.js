@@ -3,7 +3,7 @@ import React from 'react';
 var style = {
 
   list: {
-    marginLeft: '350px',
+    marginLeft: '250px',
     listStyleType: 'none',
     padding: '0',
   },

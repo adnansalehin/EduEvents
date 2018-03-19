@@ -19,13 +19,13 @@ var style = {
 
   brandName: {
     float: 'left',
-    marginLeft: '350px',
+    marginLeft: '250px',
     textDecoration: 'none',
     color: 'white'
   },
 
   nav: {
-    marginRight: '350px',
+    marginRight: '250px',
     float: 'right',
     marginTop: '-16px'
   },

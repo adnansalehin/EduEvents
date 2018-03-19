@@ -1,24 +1,23 @@
 [0m[[0m[0mdebug[0m] [0m[0m[0m
 [0m[[0m[0mdebug[0m] [0m[0mInitial source changes: [0m
 [0m[[0m[0mdebug[0m] [0m[0m	removed:Set()[0m
-[0m[[0m[0mdebug[0m] [0m[0m	added: Set(D:\EduEvents\app\inventories\UserInventory.java, D:\EduEvents\app\models\User.java, D:\EduEvents\app\models\Ticket.java, D:\EduEvents\app\controllers\UserController.java, D:\EduEvents\app\models\SystemAdmin.java, D:\EduEvents\app\models\Event.java)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	added: Set(D:\EduEvents\app\controllers\EventController.java)[0m
 [0m[[0m[0mdebug[0m] [0m[0m	modified: Set(D:\EduEvents\app\controllers\FrontendController.scala, D:\EduEvents\target\scala-2.12\routes\main\controllers\ReverseRoutes.scala, D:\EduEvents\target\scala-2.12\routes\main\controllers\javascript\JavaScriptReverseRoutes.scala, D:\EduEvents\target\scala-2.12\routes\main\router\RoutesPrefix.scala, D:\EduEvents\target\scala-2.12\routes\main\router\Routes.scala, D:\EduEvents\target\scala-2.12\routes\main\controllers\routes.java)[0m
-[0m[[0m[0mdebug[0m] [0m[0mInvalidated products: Set()[0m
+[0m[[0m[0mdebug[0m] [0m[0mInvalidated products: Set(D:\EduEvents\target\scala-2.12\classes\controllers\FrontendController.class)[0m
 [0m[[0m[0mdebug[0m] [0m[0mExternal API changes: API Changes: Set()[0m
 [0m[[0m[0mdebug[0m] [0m[0mModified binary dependencies: Set()[0m
 [0m[[0m[0mdebug[0m] [0m[0mInitial directly invalidated classes: Set(controllers.javascript.ReverseFrontendController, controllers.ReverseHomeController, controllers.FrontendController, router.Routes, controllers.ReverseFrontendController, router.RoutesPrefix, controllers.javascript.ReverseHomeController)[0m
 [0m[[0m[0mdebug[0m] [0m[0m[0m
 [0m[[0m[0mdebug[0m] [0m[0mSources indirectly invalidated by:[0m
-[0m[[0m[0mdebug[0m] [0m[0m	product: Set()[0m
+[0m[[0m[0mdebug[0m] [0m[0m	product: Set(D:\EduEvents\app\controllers\FrontendController.scala)[0m
 [0m[[0m[0mdebug[0m] [0m[0m	binary dep: Set()[0m
 [0m[[0m[0mdebug[0m] [0m[0m	external source: Set()[0m
 [0m[[0m[0mdebug[0m] [0m[0mAll initially invalidated classes: Set(controllers.javascript.ReverseFrontendController, controllers.ReverseHomeController, controllers.FrontendController, router.Routes, controllers.ReverseFrontendController, router.RoutesPrefix, controllers.javascript.ReverseHomeController)[0m
-[0m[[0m[0mdebug[0m] [0m[0mAll initially invalidated sources:Set(D:\EduEvents\app\controllers\FrontendController.scala, D:\EduEvents\target\scala-2.12\routes\main\controllers\ReverseRoutes.scala, D:\EduEvents\app\inventories\UserInventory.java, D:\EduEvents\app\models\User.java, D:\EduEvents\app\models\Ticket.java, D:\EduEvents\app\controllers\UserController.java, D:\EduEvents\target\scala-2.12\routes\main\controllers\javascript\JavaScriptReverseRoutes.scala, D:\EduEvents\target\scala-2.12\routes\main\router\RoutesPrefix.scala, D:\EduEvents\app\models\SystemAdmin.java, D:\EduEvents\target\scala-2.12\routes\main\router\Routes.scala, D:\EduEvents\app\models\Event.java, D:\EduEvents\target\scala-2.12\routes\main\controllers\routes.java)[0m
-[0m[[0m[0mdebug[0m] [0m[0mRecompiling all 14 sources: invalidated sources (12) exceeded 50.0% of all sources[0m
-[0m[[0m[0minfo[0m] [0m[0mCompiling 5 Scala sources and 9 Java sources to D:\EduEvents\target\scala-2.12\classes ...[0m
+[0m[[0m[0mdebug[0m] [0m[0mAll initially invalidated sources:Set(D:\EduEvents\app\controllers\FrontendController.scala, D:\EduEvents\target\scala-2.12\routes\main\controllers\ReverseRoutes.scala, D:\EduEvents\target\scala-2.12\routes\main\controllers\javascript\JavaScriptReverseRoutes.scala, D:\EduEvents\target\scala-2.12\routes\main\router\RoutesPrefix.scala, D:\EduEvents\target\scala-2.12\routes\main\router\Routes.scala, D:\EduEvents\target\scala-2.12\routes\main\controllers\routes.java, D:\EduEvents\app\controllers\EventController.java)[0m
+[0m[[0m[0minfo[0m] [0m[0mCompiling 5 Scala sources and 2 Java sources to D:\EduEvents\target\scala-2.12\classes ...[0m
 [0m[[0m[0mdebug[0m] [0m[0mGetting org.scala-sbt:compiler-bridge_2.12:1.0.1:compile for Scala 2.12.2[0m
 [0m[[0m[0mdebug[0m] [0m[0mGetting org.scala-sbt:compiler-bridge_2.12:1.0.1:compile for Scala 2.12.2[0m
-[0m[[0m[0mdebug[0m] [0m[0m[zinc] Running cached compiler 7ef05729 for Scala compiler version 2.12.2[0m
+[0m[[0m[0mdebug[0m] [0m[0m[zinc] Running cached compiler ba9a435 for Scala compiler version 2.12.2[0m
 [0m[[0m[0mdebug[0m] [0m[0m[zinc] The Scala compiler is invoked with:[0m
 [0m[[0m[0mdebug[0m] [0m[0m	-deprecation[0m
 [0m[[0m[0mdebug[0m] [0m[0m	-unchecked[0m

@@ -9,15 +9,16 @@ const style = {
 
   body: {
     backgroundColor: 'lightgray',
-    marginLeft: '350px',
-    width: '750px',
-    height: '450px',
+    margin: '0',
+    marginLeft: '250px',
+    width: '650px',
+    height: '350px',
     borderRadius: '0 10px 10px 10px',
-    border: '3px solid black'
+    border: '3px solid black',
   },
 
   button: {
-    marginTop: '200px',
+    marginTop: '145px',
     border: '0',
     height: '30px',
     width: '30px'

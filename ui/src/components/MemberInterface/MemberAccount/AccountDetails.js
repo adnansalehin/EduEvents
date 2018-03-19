@@ -12,7 +12,7 @@ var style = {
 
   list: {
     listStyleType: 'none',
-    marginLeft: '350px',
+    marginLeft: '250px',
     padding: '0'
   },
 

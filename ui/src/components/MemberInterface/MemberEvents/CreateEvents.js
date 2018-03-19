@@ -1,6 +1,7 @@
 import React from 'react';
 
 import MemberEvents from './MemberEvents';
+import CreateEventForm from './CreateEventForm.js';
 
 var style = {
 
@@ -17,7 +18,7 @@ class CreateEvents extends React.Component {
     return (
       <MemberEvents>
         <div style={style.body}>
-          <h3>Create Events page</h3>
+          <CreateEventForm />
         </div>
       </MemberEvents>
     );
