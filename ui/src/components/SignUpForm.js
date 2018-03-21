@@ -1,5 +1,6 @@
 import React from 'react';
-import axios from 'axios';
+
+import Client from '../Client';
 
 var style = {
 
@@ -7,7 +8,12 @@ var style = {
     position: 'relative',
     marginLeft: '250px',
     top: '2%',
-    width: '16%'
+    width: '14%'
+  },
+
+  button: {
+    backgroundColor: '#3baf36',
+    color: 'white'
   }
 }
 
@@ -36,9 +42,10 @@ class SignUpForm extends React.Component {
 
   onSubmit(e) {
     e.preventDefault();
-    console.log(this.state);
-    //Example of a post request
-    //axios.post('/api/users', this.state)
+    //Proper call to api
+    //Client...
+    //Console log test -->
+    console.log(Client.getSummary());
   }
 
   render() {
@@ -112,7 +119,7 @@ class SignUpForm extends React.Component {
         </div>
 
         <div className="form-group">
-          <button className="btn btn-primary btn-lg">
+          <button className="btn" style={style.button}>
             Sign up
           </button>
         </div>

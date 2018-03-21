@@ -8,6 +8,23 @@ function getSummary(cb) {
     .then(cb);
 }
 
+//Post login information
+//TO-DO define url
+function postLogin(username, password) {
+  return fetch('', {
+    method: 'POST',
+    headers: {
+      'Accept': 'application.json',
+      'Content-Type': 'application.json'
+    },
+    body: JSON.stringify({
+      'username': username,
+      'password': password
+    })
+  })
+    .then(checkStatus)
+}
+
 function checkStatus(response) {
   if (response.status >= 200 && response.status < 300) {
     return response;
@@ -23,5 +40,8 @@ function parseJSON(response) {
   return response.json();
 }
 
-const Client = { getSummary };
+//Exported variable
+//Define the methods that components need access to.
+const Client = { getSummary, postLogin };
+
 export default Client;
