@@ -1,29 +1,39 @@
 package controllers;
 
+import com.fasterxml.jackson.databind.JsonNode;
+import play.libs.Json;
 import inventories.UserInventory;
-import models.User;
 import play.data.Form;
 import play.data.FormFactory;
 import play.mvc.Controller;
-import play.mvc.Result;
+import play.mvc.*;
 
-import javax.inject.Inject;
+//import javax.inject.Inject;
 
-import static play.libs.Scala.asScala;
+//import static play.libs.Scala.asScala;
 
 public class UserController extends Controller{
-	private final Form<User> form;
-	private User user;
-	@Inject
-	UserInventory userInventory;
 
-	public UserController(FormFactory formFactory, User user) {
-		this.form = formFactory.form(User.class);
-		this.user = user;
+	public Result login(){
+		
+		//If /login was defined as GET the String "Communication works"
+		//would be seen on localhost:9000/login
+		return ok("Communications works");
+
 	}
-	public String getUsername() {
-		return this.user.getUsername();
-	}
+
+	//private final Form<User> form;
+	//private User user;
+	//@Inject
+	//UserInventory userInventory;
+
+	//public UserController(FormFactory formFactory, User user) {
+		//this.form = formFactory.form(User.class);
+		//this.user = user;
+	//}
+	//public String getUsername() {
+		//return this.user.getUsername();
+	//}
 
 	/**
 	 * Attempt at receiving data and updating views

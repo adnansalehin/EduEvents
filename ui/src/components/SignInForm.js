@@ -39,9 +39,7 @@ class SignInForm extends React.Component {
   onSubmit(e) {
     e.preventDefault();
     //Proper call to post info to api:
-    //Client.postLogin(this.state.username, this.state.password)
-    //Need to define a url to post information to in Client.js
-    console.log(this.state);
+    Client.postLogin(this.state.username, this.state.password);
   }
 
   render() {

@@ -11,7 +11,7 @@ function getSummary(cb) {
 //Post login information
 //TO-DO define url
 function postLogin(username, password) {
-  return fetch('', {
+  return fetch('/login', {
     method: 'POST',
     headers: {
       'Accept': 'application.json',

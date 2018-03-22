@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:D:/EduEvents/conf/routes
-// @DATE:Mon Mar 19 21:15:09 GMT 2018
+// @DATE:Thu Mar 22 23:28:47 GMT 2018
 
 import play.api.mvc.Call
 
@@ -12,14 +12,14 @@ import _root_.play.libs.F
 // @LINE:6
 package controllers {
 
-  // @LINE:9
+  // @LINE:11
   class ReverseHomeController(_prefix: => String) {
     def _defaultPrefix: String = {
       if (_prefix.endsWith("/")) "" else "/"
     }
 
   
-    // @LINE:9
+    // @LINE:11
     def appSummary(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "api/summary")
@@ -34,7 +34,7 @@ package controllers {
     }
 
   
-    // @LINE:12
+    // @LINE:14
     def assetOrDefault(file:String): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + implicitly[play.api.mvc.PathBindable[String]].unbind("file", file))
@@ -44,6 +44,21 @@ package controllers {
     def index(): Call = {
       
       Call("GET", _prefix)
+    }
+  
+  }
+
+  // @LINE:8
+  class ReverseUserController(_prefix: => String) {
+    def _defaultPrefix: String = {
+      if (_prefix.endsWith("/")) "" else "/"
+    }
+
+  
+    // @LINE:8
+    def login(): Call = {
+      
+      Call("POST", _prefix + { _defaultPrefix } + "login")
     }
   
   }
