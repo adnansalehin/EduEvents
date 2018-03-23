@@ -5,7 +5,10 @@
 # Serve index page from public directory
 GET     /                           controllers.FrontendController.index()
 
-POST	/login						controllers.UserController.login()
+GET		/login/:username/:password	controllers.UserController.login(username, password)
+
+#Test url can be removed
+GET		/testLogin					controllers.UserController.testLogin
 
 # An example route (Prefix all API routes with apiPrefix defined in application.conf)
 GET     /api/summary                controllers.HomeController.appSummary

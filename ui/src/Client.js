@@ -11,18 +11,18 @@ function getSummary(cb) {
 //Post login information
 //TO-DO define url
 function postLogin(username, password) {
-  return fetch('/login', {
-    method: 'POST',
-    headers: {
-      'Accept': 'application.json',
-      'Content-Type': 'application.json'
-    },
-    body: JSON.stringify({
-      'username': username,
-      'password': password
-    })
-  })
+
+  var url = "/login/" + username + "/" + password
+
+  return fetch(url)
     .then(checkStatus)
+}
+
+//Test function
+function testLogin() {
+  return fetch('/testLogin')
+    .then(checkStatus)
+    .then(parseJSON);
 }
 
 function checkStatus(response) {
@@ -42,6 +42,6 @@ function parseJSON(response) {
 
 //Exported variable
 //Define the methods that components need access to.
-const Client = { getSummary, postLogin };
+const Client = { getSummary, postLogin, testLogin };
 
 export default Client;
