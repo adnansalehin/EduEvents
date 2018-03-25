@@ -40,7 +40,7 @@ public class UserController extends Controller{
 
 	//Test method
 	public Result testLogin(){
-	
+
 		return ok(username + "-" + password).as("application/json");
 
 	}
