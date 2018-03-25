@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:D:/EduEvents/conf/routes
-// @DATE:Thu Mar 22 23:28:47 GMT 2018
+// @DATE:Fri Mar 23 20:44:43 GMT 2018
 
 package router
 
@@ -19,7 +19,7 @@ class Routes(
   FrontendController_2: controllers.FrontendController,
   // @LINE:8
   UserController_1: controllers.UserController,
-  // @LINE:11
+  // @LINE:14
   HomeController_0: controllers.HomeController,
   val prefix: String
 ) extends GeneratedRouter {
@@ -30,7 +30,7 @@ class Routes(
     FrontendController_2: controllers.FrontendController,
     // @LINE:8
     UserController_1: controllers.UserController,
-    // @LINE:11
+    // @LINE:14
     HomeController_0: controllers.HomeController
   ) = this(errorHandler, FrontendController_2, UserController_1, HomeController_0, "/")
 
@@ -45,7 +45,8 @@ class Routes(
 
   def documentation = List(
     ("""GET""", this.prefix, """controllers.FrontendController.index()"""),
-    ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """login""", """controllers.UserController.login()"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """login/""" + "$" + """username<[^/]+>/""" + "$" + """password<[^/]+>""", """controllers.UserController.login(username:String, password:String)"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """testLogin""", """controllers.UserController.testLogin"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """api/summary""", """controllers.HomeController.appSummary"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """""" + "$" + """file<.+>""", """controllers.FrontendController.assetOrDefault(file:String)"""),
     Nil
@@ -74,28 +75,46 @@ class Routes(
   )
 
   // @LINE:8
-  private[this] lazy val controllers_UserController_login1_route = Route("POST",
-    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("login")))
+  private[this] lazy val controllers_UserController_login1_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("login/"), DynamicPart("username", """[^/]+""",true), StaticPart("/"), DynamicPart("password", """[^/]+""",true)))
   )
   private[this] lazy val controllers_UserController_login1_invoker = createInvoker(
-    UserController_1.login(),
+    UserController_1.login(fakeValue[String], fakeValue[String]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.UserController",
       "login",
-      Nil,
-      "POST",
-      this.prefix + """login""",
+      Seq(classOf[String], classOf[String]),
+      "GET",
+      this.prefix + """login/""" + "$" + """username<[^/]+>/""" + "$" + """password<[^/]+>""",
       """""",
       Seq()
     )
   )
 
   // @LINE:11
-  private[this] lazy val controllers_HomeController_appSummary2_route = Route("GET",
+  private[this] lazy val controllers_UserController_testLogin2_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("testLogin")))
+  )
+  private[this] lazy val controllers_UserController_testLogin2_invoker = createInvoker(
+    UserController_1.testLogin,
+    play.api.routing.HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.UserController",
+      "testLogin",
+      Nil,
+      "GET",
+      this.prefix + """testLogin""",
+      """Test url can be removed""",
+      Seq()
+    )
+  )
+
+  // @LINE:14
+  private[this] lazy val controllers_HomeController_appSummary3_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("api/summary")))
   )
-  private[this] lazy val controllers_HomeController_appSummary2_invoker = createInvoker(
+  private[this] lazy val controllers_HomeController_appSummary3_invoker = createInvoker(
     HomeController_0.appSummary,
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -109,11 +128,11 @@ class Routes(
     )
   )
 
-  // @LINE:14
-  private[this] lazy val controllers_FrontendController_assetOrDefault3_route = Route("GET",
+  // @LINE:17
+  private[this] lazy val controllers_FrontendController_assetOrDefault4_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), DynamicPart("file", """.+""",false)))
   )
-  private[this] lazy val controllers_FrontendController_assetOrDefault3_invoker = createInvoker(
+  private[this] lazy val controllers_FrontendController_assetOrDefault4_invoker = createInvoker(
     FrontendController_2.assetOrDefault(fakeValue[String]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -138,20 +157,26 @@ class Routes(
   
     // @LINE:8
     case controllers_UserController_login1_route(params@_) =>
-      call { 
-        controllers_UserController_login1_invoker.call(UserController_1.login())
+      call(params.fromPath[String]("username", None), params.fromPath[String]("password", None)) { (username, password) =>
+        controllers_UserController_login1_invoker.call(UserController_1.login(username, password))
       }
   
     // @LINE:11
-    case controllers_HomeController_appSummary2_route(params@_) =>
+    case controllers_UserController_testLogin2_route(params@_) =>
       call { 
-        controllers_HomeController_appSummary2_invoker.call(HomeController_0.appSummary)
+        controllers_UserController_testLogin2_invoker.call(UserController_1.testLogin)
       }
   
     // @LINE:14
-    case controllers_FrontendController_assetOrDefault3_route(params@_) =>
+    case controllers_HomeController_appSummary3_route(params@_) =>
+      call { 
+        controllers_HomeController_appSummary3_invoker.call(HomeController_0.appSummary)
+      }
+  
+    // @LINE:17
+    case controllers_FrontendController_assetOrDefault4_route(params@_) =>
       call(params.fromPath[String]("file", None)) { (file) =>
-        controllers_FrontendController_assetOrDefault3_invoker.call(FrontendController_2.assetOrDefault(file))
+        controllers_FrontendController_assetOrDefault4_invoker.call(FrontendController_2.assetOrDefault(file))
       }
   }
 }

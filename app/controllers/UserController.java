@@ -14,11 +14,34 @@ import play.mvc.*;
 
 public class UserController extends Controller{
 
-	public Result login(){
+	//Test variables can be deleted
+	private String username;
+	private String password;
+
+	public Result login(String username, String password){
+	
+		//Username and password passed as /login/username/password
+		//Verify against stored data
+		//Return should be based on evaluating whether username/password combination is valid
 		
-		//If /login was defined as GET the String "Communication works"
-		//would be seen on localhost:9000/login
-		return ok("Communications works");
+		//Testing that values are passed.
+		this.username = username;
+		this.password = password;
+
+		//After submitting login details on sign in page go to:
+		//localhost:9000/testLogin to see that variables have been assigned to class variables and then output on that url through method testLogin()
+
+		//Later verification can be done in a single method (for example this one) and return success or failure
+
+		//Temporary return
+		return ok();
+
+	}
+
+	//Test method
+	public Result testLogin(){
+	
+		return ok(username + "-" + password).as("application/json");
 
 	}
 
