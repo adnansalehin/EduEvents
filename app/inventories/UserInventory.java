@@ -9,7 +9,10 @@ import java.util.HashSet;
 public class UserInventory {
 	private Collection<User> users = new HashSet<>();
 	{
-		users.add(new User("adnan", "qwerty", "adnan@fuckyou.com"));
-		users.add(new User("adnan2", "qwerty", "adnan@fuckyou.com"));
-	}
+		users.add(new User("adnan", "qwerty", "adnan@abc.com"));
+		users.add(new User("adnan2", "qwerty", "adnan@qwe.com"));
+    }
+    public boolean isRegistered(User user) {
+        return (users.contains(user))
+    }
 }

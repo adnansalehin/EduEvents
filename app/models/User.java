@@ -15,8 +15,8 @@ public class User {
 	public User(String username, String password, String email) {
 		this.userID = username.hashCode();
 		this.username = username;
-		this.email = email;
 		this.password = password;
+		this.email = email;
 		this.banned = false;
 	}
 }
