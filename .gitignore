@@ -1,9 +1,8 @@
 # See https://help.github.com/ignore-files/ for more about ignoring files.
 
-.idea/
-target/
-logs/
-s
+/.idea/
+/target/
+/logs/
 
 # dependencies
 /node_modules
