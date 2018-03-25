@@ -3,6 +3,7 @@
 /.idea/
 /target/
 /logs/
+/project/target/
 
 # dependencies
 /node_modules
