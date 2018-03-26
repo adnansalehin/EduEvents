@@ -17,10 +17,6 @@ public class Search extends Controller {
   private String sortMethodState;
   private EventInventory events;
 
-	public Search()
-  {
-  }
-
 
   public Result results(String term, String tags, String address)
   {
