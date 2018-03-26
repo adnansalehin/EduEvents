@@ -44,10 +44,10 @@ class SignUpForm extends React.Component {
     })
   }
 
-  onSubmit(e) {
+  async onSubmit(e) {
     e.preventDefault();
     //Passing information to backend to create new user
-    var response = Client.signupUser(this.state.username, this.state.password, this.state.email);
+    var response = await Client.signupUser(this.state.username, this.state.password, this.state.email);
     if (response !== false) {
       this.props.history.push("/sign_up_successful");
     } else {

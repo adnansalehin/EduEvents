@@ -56,8 +56,9 @@ class SignInForm extends React.Component {
     e.preventDefault();
     this.logInUser();
     //Passing information to backend server
-    var response = Client.postLogin(this.state.username, this.state.password);
-    if (response.result !== false) {
+    var response = await Client.postLogin(this.state.username, this.state.password);
+    console.log(response);
+    if (response !== false) {
       this.props.history.push("/loggedIn");
     } else {
       this.props.history.push("/sign_in_failed");

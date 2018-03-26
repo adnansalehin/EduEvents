@@ -8,7 +8,7 @@ function getSummary(cb) {
     .then(cb);
 }
 
-function postLogin(username, password) {
+async function postLogin(username, password) {
 
   var url = "/login/" + username + "/" + password
 
@@ -17,19 +17,13 @@ function postLogin(username, password) {
     .then(parseJSON)
 }
 
-function signupUser(username, password, email) {
+async function signupUser(username, password, email) {
 
   var url = "/signup/" + username + "/" + password + "/" + email;
 
   return fetch(url)
     .then(checkStatus)
-}
-
-//Test function
-function testLogin() {
-  return fetch('/testLogin')
-    .then(checkStatus)
-    .then(parseJSON);
+    .then(parseJSON)
 }
 
 function checkStatus(response) {
