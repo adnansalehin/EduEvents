@@ -4,7 +4,7 @@
 		module="eduevents_2.12"
 		revision="1.0-SNAPSHOT"
 		status="integration"
-		publication="20180326020536"
+		publication="20180326131922"
 	>
 		<description>
 		EduEvents

@@ -23,7 +23,6 @@ function signupUser(username, password, email) {
 
   return fetch(url)
     .then(checkStatus)
-    .then(parseJSON)
 }
 
 //Test function

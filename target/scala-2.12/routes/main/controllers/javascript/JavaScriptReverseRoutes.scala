@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:D:/EduEvents/conf/routes
-// @DATE:Mon Mar 26 02:44:48 BST 2018
+// @DATE:Mon Mar 26 13:19:45 BST 2018
 
 import play.api.routing.JavaScriptReverseRoute
 
@@ -20,7 +20,7 @@ package controllers.javascript {
     }
 
   
-    // @LINE:16
+    // @LINE:13
     def assetOrDefault: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.FrontendController.assetOrDefault",
       """
@@ -56,16 +56,6 @@ package controllers.javascript {
       """
         function(username0,password1,email2) {
           return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "signup/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[String]].javascriptUnbind + """)("username", username0)) + "/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[String]].javascriptUnbind + """)("password", password1)) + "/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[String]].javascriptUnbind + """)("email", email2))})
-        }
-      """
-    )
-  
-    // @LINE:13
-    def testLogin: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.UserController.testLogin",
-      """
-        function() {
-          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "testLogin"})
         }
       """
     )

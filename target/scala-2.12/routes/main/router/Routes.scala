@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:D:/EduEvents/conf/routes
-// @DATE:Mon Mar 26 02:44:48 BST 2018
+// @DATE:Mon Mar 26 13:19:45 BST 2018
 
 package router
 
@@ -43,7 +43,6 @@ class Routes(
     ("""GET""", this.prefix, """controllers.FrontendController.index()"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """login/""" + "$" + """username<[^/]+>/""" + "$" + """password<[^/]+>""", """controllers.UserController.login(username:String, password:String)"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """signup/""" + "$" + """username<[^/]+>/""" + "$" + """password<[^/]+>/""" + "$" + """email<[^/]+>""", """controllers.UserController.signUp(username:String, password:String, email:String)"""),
-    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """testLogin""", """controllers.UserController.testLogin"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """""" + "$" + """file<.+>""", """controllers.FrontendController.assetOrDefault(file:String)"""),
     Nil
   ).foldLeft(List.empty[(String,String,String)]) { (s,e) => e.asInstanceOf[Any] match {
@@ -107,28 +106,10 @@ class Routes(
   )
 
   // @LINE:13
-  private[this] lazy val controllers_UserController_testLogin3_route = Route("GET",
-    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("testLogin")))
-  )
-  private[this] lazy val controllers_UserController_testLogin3_invoker = createInvoker(
-    UserController_0.testLogin,
-    play.api.routing.HandlerDef(this.getClass.getClassLoader,
-      "router",
-      "controllers.UserController",
-      "testLogin",
-      Nil,
-      "GET",
-      this.prefix + """testLogin""",
-      """Test url can be removed""",
-      Seq()
-    )
-  )
-
-  // @LINE:16
-  private[this] lazy val controllers_FrontendController_assetOrDefault4_route = Route("GET",
+  private[this] lazy val controllers_FrontendController_assetOrDefault3_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), DynamicPart("file", """.+""",false)))
   )
-  private[this] lazy val controllers_FrontendController_assetOrDefault4_invoker = createInvoker(
+  private[this] lazy val controllers_FrontendController_assetOrDefault3_invoker = createInvoker(
     FrontendController_1.assetOrDefault(fakeValue[String]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -164,15 +145,9 @@ class Routes(
       }
   
     // @LINE:13
-    case controllers_UserController_testLogin3_route(params@_) =>
-      call { 
-        controllers_UserController_testLogin3_invoker.call(UserController_0.testLogin)
-      }
-  
-    // @LINE:16
-    case controllers_FrontendController_assetOrDefault4_route(params@_) =>
+    case controllers_FrontendController_assetOrDefault3_route(params@_) =>
       call(params.fromPath[String]("file", None)) { (file) =>
-        controllers_FrontendController_assetOrDefault4_invoker.call(FrontendController_1.assetOrDefault(file))
+        controllers_FrontendController_assetOrDefault3_invoker.call(FrontendController_1.assetOrDefault(file))
       }
   }
 }

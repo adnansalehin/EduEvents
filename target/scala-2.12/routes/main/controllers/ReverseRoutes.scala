@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:D:/EduEvents/conf/routes
-// @DATE:Mon Mar 26 02:44:48 BST 2018
+// @DATE:Mon Mar 26 13:19:45 BST 2018
 
 import play.api.mvc.Call
 
@@ -19,7 +19,7 @@ package controllers {
     }
 
   
-    // @LINE:16
+    // @LINE:13
     def assetOrDefault(file:String): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + implicitly[play.api.mvc.PathBindable[String]].unbind("file", file))
@@ -44,12 +44,6 @@ package controllers {
     def signUp(username:String, password:String, email:String): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "signup/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[String]].unbind("username", username)) + "/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[String]].unbind("password", password)) + "/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[String]].unbind("email", email)))
-    }
-  
-    // @LINE:13
-    def testLogin(): Call = {
-      
-      Call("GET", _prefix + { _defaultPrefix } + "testLogin")
     }
   
     // @LINE:8

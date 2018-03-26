@@ -51,10 +51,8 @@ class SignInForm extends React.Component {
   async onSubmit(e) {
     e.preventDefault();
     this.logInUser();
-    //Can console log this to see what is passed.
-    //Client.postLogin(this.state.username, this.state.password);
-    //Test login variables sent
-    //console.log(Client.testLogin());
+    //Passing information to backend server
+    Client.postLogin(this.state.username, this.state.password);
   }
 
   render() {
