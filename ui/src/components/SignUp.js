@@ -14,6 +14,11 @@ const style = {
 }
 
 class SignUp extends React.Component {
+
+  constructor(props) {
+    super(props);
+  }
+
   render() {
 
     const { userSignupRequest } = this.props;
@@ -21,7 +26,7 @@ class SignUp extends React.Component {
     return (
       <div style={style.body}>
         <SubHeader subheader="Create an account" />
-        <SignUpForm userSignupRequest={userSignupRequest} />
+        <SignUpForm userSignupRequest={userSignupRequest} failed={this.props.failed} />
       </div>
     );
   }

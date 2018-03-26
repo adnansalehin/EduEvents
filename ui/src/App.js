@@ -19,14 +19,6 @@ import CreateEvents from './components/MemberInterface/MemberEvents/CreateEvents
 
 //Components to be rendered
 //Root renders a header and footer, where children can be passed as parameters.
-const home = () => {
-  return (
-    <Root>
-      <Home />
-    </Root>
-  );
-}
-
 const signUp = () => {
   return (
     <Root>
@@ -42,6 +34,22 @@ const about = () => {
     </Root>
   );
 }
+
+const successfulSignUp = () => {
+  return (
+    <Root>
+      <h4>Sign up successful</h4>
+    </Root>
+  );
+}
+
+const failedSignUp = () => {
+  return (
+    <Root>
+      <SignUp failed="Sign up failed!" />
+    </Root>
+  );
+}
 //---
 
 class App extends Component {
@@ -49,11 +57,14 @@ class App extends Component {
     super(props);
     this.state = {
       username: '',
-      loggedIn: false
+      loggedIn: false,
+      search: '',
+      tag: ''
     };
 
     this.changeUsername = this.changeUsername.bind(this);
     this.logIn = this.logIn.bind(this);
+    this.setSearch = this.setSearch.bind(this);
   }
 
   componentDidMount() {
@@ -64,12 +75,35 @@ class App extends Component {
     console.log(this.state);
   }
 
+  home = () => {
+    return (
+      <Root>
+        <Home setSearch={this.setSearch} loggedIn={this.state.loggedIn}/>
+      </Root>
+    );
+  }
+
   signIn = () => {
     return (
       <Root>
         <SignIn changeUsername={this.changeUsername} username={this.state.username} logIn={this.logIn}/>
       </Root>
     );
+  }
+
+  signInFailed = () => {
+    return (
+      <Root>
+        <SignIn changeUsername={this.changeUsername} username={this.state.username} logIn={this.logIn} failed="Sign in failed!" />
+      </Root>
+    );
+  }
+
+  setSearch(search, tag) {
+    this.setState({
+      search: search,
+      tag: tag
+    })
   }
 
   changeUsername(newUsername) {
@@ -89,9 +123,12 @@ class App extends Component {
     return (
       <Router>
         <div>
-          <Route exact path="/" component={home} />
+          <Route exact path="/" component={this.home} />
           <Route exact path="/sign_in" component={this.signIn} />
+          <Route exact path="/sign_in_failed" component={this.signInFailed} />
           <Route exact path="/sign_up" component={signUp} />
+          <Route exact path="/sign_up_successful" component={successfulSignUp} />
+          <Route exact path="/sign_up_failed" component={failedSignUp} />
           <Route exact path="/about" component={about} />
           <Route exact path={"/loggedin"} component={MemberHome} />
           <Route exact path="/loggedin/account" component={MemberAccount} />

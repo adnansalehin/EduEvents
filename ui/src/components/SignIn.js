@@ -26,7 +26,7 @@ class SignIn extends React.Component {
         <div>
           <SubHeader subheader="Sign in" />
         </div>
-        <SignInForm changeUsername={this.props.changeUsername} username={this.props.username} logIn={this.props.logIn} />
+        <SignInForm changeUsername={this.props.changeUsername} username={this.props.username} logIn={this.props.logIn} failed={this.props.failed} />
       </div>
     );
   }

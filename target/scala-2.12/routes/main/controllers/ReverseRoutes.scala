@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:D:/EduEvents/conf/routes
-// @DATE:Mon Mar 26 13:19:45 BST 2018
+// @DATE:Mon Mar 26 15:22:56 BST 2018
 
 import play.api.mvc.Call
 

@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { withRouter } from 'react-router-dom';
+
 var style = {
 
   searchForm: {
@@ -50,9 +52,15 @@ class SearchField extends React.Component {
     console.log(this.state.tag);
   }
 
-  onSubmit(e) {
+  async onSubmit(e) {
     e.preventDefault();
     console.log(this.state);
+    this.props.setSearch(this.state.search, this.state.tag);
+    if (this.props.loggedIn) {
+      this.props.history.push("/loggedIn/search_results");
+    } else {
+      this.props.history.push("/search_results");
+    }
   }
 
   render() {
@@ -93,4 +101,4 @@ class SearchField extends React.Component {
   }
 }
 
-export default SearchField;
+export default withRouter(SearchField);

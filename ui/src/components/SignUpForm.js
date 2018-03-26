@@ -2,6 +2,8 @@ import React from 'react';
 
 import Client from '../Client';
 
+import { withRouter } from 'react-router-dom';
+
 var style = {
 
   form: {
@@ -14,6 +16,10 @@ var style = {
   button: {
     backgroundColor: '#3baf36',
     color: 'white'
+  },
+
+  failed: {
+    color: 'red'
   }
 }
 
@@ -41,14 +47,19 @@ class SignUpForm extends React.Component {
   onSubmit(e) {
     e.preventDefault();
     //Passing information to backend to create new user
-    Client.signupUser(this.state.username, this.state.password, this.state.email);
-    //Console log as signupuser is currently not returning anything
-    console.log(Client.signupUser(this.state.username, this.state.password, this.state.email));
+    var response = Client.signupUser(this.state.username, this.state.password, this.state.email);
+    if (response !== false) {
+      this.props.history.push("/sign_up_successful");
+    } else {
+      this.props.history.push("/sign_up_failed");
+    }
   }
 
   render() {
     return (
       <form onSubmit={this.onSubmit} style={style.form}>
+
+        <h5 style={style.failed}>{this.props.failed}</h5>
 
         <div className="form-group">
           <label className="control-label">Username</label>
@@ -104,4 +115,4 @@ class SignUpForm extends React.Component {
   }
 }
 
-export default SignUpForm;
+export default withRouter(SignUpForm);
