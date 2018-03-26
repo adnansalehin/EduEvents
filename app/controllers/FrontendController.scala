@@ -1,6 +1,6 @@
-package controllers;
+package controllers
 
-import javax.inject.Inject;
+import javax.inject._
 
 import play.api.Configuration
 import play.api.http.HttpErrorHandler
@@ -11,7 +11,7 @@ import play.api.mvc._
   * @param assets Assets controller reference.
   * @param cc Controller components reference.
   */
-/*@Singleton*/
+@Singleton
 class FrontendController @Inject()(assets: Assets, errorHandler: HttpErrorHandler, config: Configuration, cc: ControllerComponents) extends AbstractController(cc) {
 
   def index: Action[AnyContent] = assets.at("index.html")
