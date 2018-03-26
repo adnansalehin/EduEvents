@@ -11,9 +11,6 @@ import play.data.FormFactory;
 import play.mvc.Controller;
 import play.mvc.*;
 import inventories.UserInventory.*;
-//import javax.inject.Inject;
-
-//import static play.libs.Scala.asScala;
 
 public class UserController extends Controller {
 
@@ -24,29 +21,44 @@ public class UserController extends Controller {
 
 	}
 
-	//Test variables can be deleted
-//	private String username;
-//	private String password;
-
-
 	public Result login(String username, String password) {
 		boolean loginSuccessful = false;
-		model.setUsername(username);
-    model.setPassword(password);
+    HashSet<User> users = userInventory.getUsers();
+    ArrayList meme = new ArrayList();
+    User login = new User();
 
-        if(userInventory.isRegistered(model))
-        	loginSuccessful = true;
-        else
-        	loginSuccessful = false;
-
-		return ok("return: "+loginSuccessful).as("application/json");
+    for(User x : users)
+      if(x.getUsername().equals(username) && x.getPassword().equals(password))
+      {
+        loginSuccessful = true;
+        login = x;
+      }
+      else
+        loginSuccessful = false;
+    this.model = login;
+    JsonNode jsonNode = Json.toJson(loginSuccessful);
+    return ok(jsonNode).as("application/json");
 	}
 
 	public Result signUp(String username, String password, String email) {
+    boolean success = true;
+    HashSet<User> users = userInventory.getUsers();
+    for(User x : users)
+      if(x.getUsername().equals(username) || x.getEmail().equals(email))
+      {
+        success = false;
+      }
 		userInventory.addUser(new User(username, password, email));
     System.out.println(userInventory.getUsers());
-		return ok().as("application/json");
+    JsonNode jsonNode = Json.toJson(success);
+    return ok(jsonNode).as("application/json");
 	}
+
+  public Result getModel()
+  {
+    JsonNode jsonNode = Json.toJson(model);
+    return ok(jsonNode).as("application/json");
+  }
 
   public Result bookEvent(int eventID,int noOfTickets, double price)
   {
