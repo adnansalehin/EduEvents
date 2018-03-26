@@ -13,15 +13,23 @@ var style = {
   },
 }
 
-const SignIn = () => {
-  return (
-    <div style={style.body}>
-      <div>
-        <SubHeader subheader="Sign in" />
+class SignIn extends React.Component {
+
+  constructor(props) {
+    super(props);
+    
+  }
+
+  render() {
+    return (
+      <div style={style.body}>
+        <div>
+          <SubHeader subheader="Sign in" />
+        </div>
+        <SignInForm changeUsername={this.props.changeUsername} username={this.props.username} logIn={this.props.logIn} />
       </div>
-      <SignInForm />
-    </div>
-  );
+    );
+  }
 }
 
 export default SignIn;
