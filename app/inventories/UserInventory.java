@@ -24,7 +24,7 @@ public class UserInventory {
 		Connection conn = null;
 	    try {
 		    // db parameters
-		    String url = "jdbc:sqlite:C:/Users/adnan/EduEvents/app/database\\eduevents.db";
+		    String url = "jdbc:sqlite:../database/eduevents.db";
 		    // create a connection to the database
 		    conn = DriverManager.getConnection(url);
 
@@ -41,5 +41,6 @@ public class UserInventory {
 			    System.out.println(ex.getMessage());
 		    }
 	    }
+	    conn.
 	}
 }
