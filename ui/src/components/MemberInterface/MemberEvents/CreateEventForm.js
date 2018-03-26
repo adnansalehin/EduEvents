@@ -10,7 +10,7 @@ var style = {
 
   form: {
     position: 'relative',
-    top: '30px',
+    top: '12px',
     width: '16%',
   },
 
@@ -42,7 +42,7 @@ class CreateEventForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      isValid: false
+      
     }
 
     this.onChange = this.onChange.bind(this);
@@ -78,7 +78,7 @@ class CreateEventForm extends React.Component {
   render() {
     return (
       <div style={style.body}>
-        <h2>Create and share your event!</h2>
+        <h3>Create and share your event!</h3>
 
         <form
           onSubmit={this.onSubmit}
@@ -119,87 +119,31 @@ class CreateEventForm extends React.Component {
           </div>
 
           <div className="form-group">
-            <label className="control-label" style={style.label}><h5>Time of event</h5></label>
-            <select
-              onChange={this.onChange}
-              name="hour"
-            >
-              {this.options(23)}            
-            </select>
-            :
-            <select
-              onChange={this.onChange}
-              name="minutes"
-            >
-              {this.options(59)}
-            </select>
-          </div>
-
-          <div className="form-group">
-            <label className="control-label" style={style.label}><h5>Date of event</h5></label>
-            <select
-              onChange={this.onChange}
-              name="day"
-            >
-              <option value="">day</option>
-              {(() => {
-                var list = [];
-
-                for (var i = 1; i <= 31; i++) {
-                  if (i < 10) {
-                    list.push(<option key={i} value={i}>0{i}</option>)
-                  } else {
-                    list.push(<option key={i} value={i}>{i}</option>)
-                  }
-                }
-
-                return list;
-              })()}
-            </select>
-            :
-            <select
-              onChange={this.onChange}
-              name="month"
-            >
-              <option value="">month</option>
-              {(() => {
-                var list = [];
-
-                for (var i = 1; i <= 12; i++) {
-                  if (i < 10) {
-                    list.push(<option key={i} value={i}>0{i}</option>)
-                  } else {
-                    list.push(<option key={i} value={i}>{i}</option>)
-                  }
-                }
-
-                return list;
-              })()}
-            </select>
-            :
-            <select
-              onChange={this.onChange}
-              name="year"
-            >
-              <option value="">year</option>
-              {(() => {
-                var list = [];
-
-                for (var i = 2018; i <= 2030; i++) {
-                  list.push(<option key={i} value={i}>{i}</option>)
-                }
-
-                return list;
-              })()}
-            </select>
-          </div>
-
-          <div className="form-group">
-            <label className="control-label" style={style.label}><h5>Location</h5></label>
+            <label className="control-label" style={style.label}><h5>Address</h5></label>
             <input
               onChange={this.onChange}
               type="text"
-              name="location"
+              name="address"
+              className="form-control"
+            />
+          </div>
+
+          <div className="form-group">
+            <label className="control-label" style={style.label}><h5>Price of ticket</h5></label>
+            <input
+              onChange={this.onChange}
+              type="text"
+              name="price"
+              className="form-control"
+            />
+          </div>
+
+          <div className="form-group">
+            <label className="control-label" style={style.label}><h5>Max tickets</h5></label>
+            <input
+              onChange={this.onChange}
+              type="text"
+              name="maxTicket"
               className="form-control"
             />
           </div>

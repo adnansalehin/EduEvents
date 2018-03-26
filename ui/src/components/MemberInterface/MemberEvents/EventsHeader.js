@@ -29,10 +29,10 @@ const EventsHeader = () => {
   return (
     <div>
       <ul style={style.list}>
-        <li key="1" style={style.listElement}><Link to="/memberID/my_events" style={style.link}>My Events</Link></li>
-        <li key="2" style={style.listElement}><Link to="/memberID/booked_events" style={style.link}>Booked Events</Link></li>
-        <li key="3" style={style.listElement}><Link to="/memberID/favourited_events" style={style.link}>Favourited Events</Link></li>
-        <li key="4" style={style.listElement}><Link to="/memberID/create_events" style={style.link}>Create Event</Link></li>
+        <li key="1" style={style.listElement}><Link to="/loggedIn/my_events" style={style.link}>My Events</Link></li>
+        <li key="2" style={style.listElement}><Link to="/loggedIn/booked_events" style={style.link}>Booked Events</Link></li>
+        <li key="3" style={style.listElement}><Link to="/loggedIn/favourited_events" style={style.link}>Favourited Events</Link></li>
+        <li key="4" style={style.listElement}><Link to="/loggedIn/create_events" style={style.link}>Create Event</Link></li>
       </ul> 
     </div>
   );

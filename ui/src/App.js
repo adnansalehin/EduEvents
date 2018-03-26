@@ -9,7 +9,9 @@ import Home from './components/Home/Home';
 import About from './components/About';
 import SignIn from './components/SignIn';
 import SignUp from './components/SignUp';
+import SearchResults from './components/SearchResults';
 
+import MemberRoot from './components/MemberInterface/MemberRoot';
 import MemberHome from './components/MemberInterface/MemberHome';
 import MemberAccount from './components/MemberInterface/MemberAccount/MemberAccount';
 import MyEvents from './components/MemberInterface/MemberEvents/MyEvents';
@@ -65,6 +67,7 @@ class App extends Component {
     this.changeUsername = this.changeUsername.bind(this);
     this.logIn = this.logIn.bind(this);
     this.setSearch = this.setSearch.bind(this);
+    this.searchResults = this.searchResults.bind(this);
   }
 
   componentDidMount() {
@@ -106,6 +109,22 @@ class App extends Component {
     })
   }
 
+  searchResults() {
+    if (this.state.loggedIn) {
+      return (
+        <MemberRoot>
+          <SearchResults search={this.state.search} tag={this.state.tag} />
+        </MemberRoot>
+      );
+    } else {
+      return (
+        <Root>
+          <SearchResults search={this.state.search} tag={this.state.tag} />
+        </Root>
+      );
+    }
+  }
+
   changeUsername(newUsername) {
     this.setState({
       username: newUsername
@@ -136,6 +155,8 @@ class App extends Component {
           <Route exact path="/loggedin/booked_events" component={BookedEvents} />
           <Route exact path="/loggedin/favourited_events" component={FavouritedEvents} />
           <Route exact path="/loggedin/create_events" component={CreateEvents} />
+          <Route exact path="/search_results" component={this.searchResults} />
+          <Route exact path="/loggedIn/search_results" component={this.searchResults} />
         </div>
       </Router>
     );
