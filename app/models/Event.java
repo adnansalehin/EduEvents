@@ -17,7 +17,7 @@ public class Event {
 
 
 
-	public Event(String name, String address, String description, double price, int maxTickets) {
+	public Event(String name, String address, String description, double price, int maxTickets, HashSet<Tag> tags) {
 		this.eventID = name.hashCode();
 		this.name = name;
 		this.address = address;
@@ -25,6 +25,7 @@ public class Event {
 		this.price = price;
 		this.maxTickets = maxTickets;
 		this.noOfSold = 0;
+		this.tags = tags;
 	}
 
 	public void bookTicket(int i)

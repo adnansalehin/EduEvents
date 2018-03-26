@@ -11,6 +11,7 @@ public class User {
 	@Constraints.Email
 	private String email;
 	private boolean banned;
+	private Collection<Event> created;
 	private Collection<Tag> tags;
 	private Collection<Ticket> tickets;
 	public User(String username, String password, String email) {
@@ -33,6 +34,22 @@ public class User {
 	public void addTicket(Ticket ticket) {
 		tickets.add(ticket);
 	}
+
+	public void addCreated(Event event)
+	{
+		created.add(event);
+	}
+
+	public void delCreated(Event event)
+	{
+		created.remove(event);
+	}
+
+	public void cancelTicket(Ticket ticket)
+	{
+		tickets.remove(ticket);
+	}
+
 
 
 	/**
@@ -116,9 +133,21 @@ public class User {
 	}
 
 	/**
-	* Returns value of tags
+	* Returns value of created
 	* @return
 	*/
+	public Collection<Event> getCreated() {
+		return created;
+	}
+
+	/**
+	* Sets new value of created
+	* @param
+	*/
+	public void setCreated(Collection<Event> created) {
+		this.created = created;
+	}
+
 	public Collection<Tag> getTags() {
 		return tags;
 	}

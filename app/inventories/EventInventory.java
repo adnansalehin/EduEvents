@@ -26,8 +26,8 @@ public class EventInventory {
 		this.events = events;
 	}
 
-	public void createEvent(String name, String address, String description, double price, int maxTickets, String tags, String blacklist, String whitelist){
-
+	public void createEvent(Event event){
+		events.add(event);
 	}
 
 	public Event getEventById(int id)

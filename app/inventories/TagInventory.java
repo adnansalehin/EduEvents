@@ -10,31 +10,32 @@ public class TagInventory extends Controller {
 	private static TagInventory inventory = new TagInventory();
 	private HashSet<Tag> tags = new HashSet<>();
 
-	private TagInventory(){}
-	public TagInventory getInstance()
+	private TagInventory(){
+		addTag("python","It is about python");
+		addTag("java", "It is about java");
+		addTag("se","it is about software engineering");
+	}
+	public static TagInventory getInstance()
 	{
 		return inventory;
 	}
-	public Result getTags() {
-		JsonNode jsonNode = Json.toJson(tags);
-		return ok(jsonNode).as("application/json");
+	public HashSet<Tag> getTags() {
+		return tags;
 	}
 
-	public Result removeTag(String tag)
+	public void removeTag(String tag)
 	{
 		for(Tag x : tags)
 			if(x.getTagName().equals(tag))
 				tags.remove(x);
-		return ok().as("application/json");
 	}
 
-	public Result addTag(String tagN, String tagD)
+	public void addTag(String tagN, String tagD)
 	{
 		tags.add(new Tag(tagN, tagD));
-		return ok().as("application/json");
 	}
 
-	public Result editTag(String oldN, String oldD, String newN, String newD)
+	public void editTag(String oldN, String oldD, String newN, String newD)
 	{
 		for(Tag x : tags)
 			if(x.getTagName().equals(oldN))
@@ -42,22 +43,20 @@ public class TagInventory extends Controller {
 				x.setTagName(newN);
 				x.setTagDescription(newD);
 			}
-		return ok().as("application/json");
 	}
 
-	public Result searchTag(String tag)
+	public HashSet<Tag> searchTag(String tag)
 	{
 		HashSet<Tag> result = new HashSet<Tag>();
 		for(Tag x : tags)
 			if(x.getTagName().contains(tag))
 				result.add(x);
-		JsonNode jsonNode = Json.toJson(result);
-		return ok(jsonNode).as("application/json");
+
+			return result;
 	}
 
-	public Result setTags(HashSet<Tag> tags) {
+	public void setTags(HashSet<Tag> tags) {
 		this.tags = tags;
-		return ok().as("application/json");
 	}
 
 }
