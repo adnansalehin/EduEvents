@@ -2,7 +2,7 @@ import React from 'react';
 
 import Client from '../Client';
 
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 
 var style = {
 
@@ -52,7 +52,12 @@ class SignInForm extends React.Component {
     e.preventDefault();
     this.logInUser();
     //Passing information to backend server
-    Client.postLogin(this.state.username, this.state.password);
+    var res = Client.postLogin(this.state.username, this.state.password);
+    if (res.result !== false) {
+      this.props.history.push("/loggedIn");
+    } else {
+      this.props.history.push("/sign_in");
+    }
   }
 
   render() {
@@ -91,4 +96,4 @@ class SignInForm extends React.Component {
   }
 }
 
-export default SignInForm;
+export default withRouter(SignInForm);

@@ -9,7 +9,7 @@ class MemberRoot extends React.Component {
   render() {
     return (
       <div>
-        <Header element1="Member" element2="My Events" element3="Log out" element1Link="/memberID/account" element2Link="/memberID/my_events" element3Link="log_out" />
+        <Header element1="Member" element2="My Events" element3="Log out" element1Link="/loggedIn/account" element2Link="/loggedIn/my_events" element3Link="/" />
         {this.props.children}
         <Footer />
       </div>
