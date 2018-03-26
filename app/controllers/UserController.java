@@ -18,7 +18,9 @@ public class UserController extends Controller {
     private UserInventory userInventory = UserInventory.getInstance();
     private EventInventory eventInventory = EventInventory.getInstance();
 	public UserController() {
-
+    signUp("user","user","user@user.user");
+    signUp("hot","memes","@lul");
+    signUp("organiser","organiser","organiser@organiser.organiser");
 	}
 
 	public Result login(String username, String password) {
@@ -36,6 +38,7 @@ public class UserController extends Controller {
       else
         loginSuccessful = false;
     this.model = login;
+    System.out.println(loginSuccessful);
     JsonNode jsonNode = Json.toJson(loginSuccessful);
     return ok(jsonNode).as("application/json");
 	}
@@ -58,6 +61,15 @@ public class UserController extends Controller {
   {
     JsonNode jsonNode = Json.toJson(model);
     return ok(jsonNode).as("application/json");
+  }
+
+  public Result setModel(String username)
+  {
+    HashSet<User> users = userInventory.getUsers();
+    for(User x : users)
+      if(x.getUsername().equals(username))
+        this.model = x;
+    return ok().as("application/json");
   }
 
   public Result bookEvent(int eventID,int noOfTickets, double price)
