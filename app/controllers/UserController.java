@@ -22,6 +22,7 @@ public class UserController extends Controller {
     signUp("user","user","user@user.user");
     signUp("hot","memes","@lul");
     signUp("organiser","organiser","organiser@organiser.organiser");
+
 	}
 
 	public Result login(String username, String password) {
@@ -43,6 +44,15 @@ public class UserController extends Controller {
     JsonNode jsonNode = Json.toJson(loginSuccessful);
     return ok(jsonNode).as("application/json");
 	}
+
+  private User getUser(String s)
+  {
+    HashSet<User> userInv = userInventory.getUsers();
+    for(User x : userInv)
+      if(x.getUsername().equals(s))
+        return x;
+    return new User("user","user","user@user.user");
+  }
 
 	public Result signUp(String username, String password, String email) {
     boolean success = true;
@@ -82,6 +92,29 @@ public class UserController extends Controller {
     JsonNode jsonNode = Json.toJson(filtered);
     return ok(jsonNode).as("application/json");
   }
+
+  public Result createEvent(String name, String address, String description, double price, int maxTickets, String tags){
+    boolean result = true;
+    HashSet<Event> eventInv = eventInventory.getEvents();
+    for(Event x : eventInv)
+      if(x.getName().equals(name))
+        result = false;
+    if(result) {
+      String[] ar = tags.split(" ");
+      HashSet<Tag> tagSet = tagInventory.getTags();
+      HashSet<User> userInv = userInventory.getUsers();
+      HashSet<Tag> tagRes = new HashSet<Tag>();
+      for(String s : ar)
+        for(Tag t : tagSet)
+          if(t.getTagName().equals(s))
+            tagRes.add(t);
+      Event newEvent = new Event(name,address,description,price,maxTickets,tagRes);
+  		eventInventory.createEvent(newEvent);
+      model.addCreated(newEvent);
+    }
+    JsonNode jsonNode = Json.toJson(result);
+    return ok(jsonNode).as("application/json");
+	}
 
   public Result getModel()
   {
