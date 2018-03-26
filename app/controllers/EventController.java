@@ -23,7 +23,9 @@ public class EventController extends Controller {
 
   public EventController(){
     createEvent("Python course","Somewhere at","Best python course ever",399.00,420,"python se","organiser");
+    createEvent("rerere course","Somewhere at","Best rerere course ever",399.00,420,"rere se","organiser");
     createEvent("Java course","Somewhere at","Best Java course ever",10.00,420,"java se","user");
+    createEvent("SE course","Somewhere at","Best SE course ever",3.99,420,"java python se","user");
     System.out.println("EventController: " + eventInventory.getEvents() );
   }
 
