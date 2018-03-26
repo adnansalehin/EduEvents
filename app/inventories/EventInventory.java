@@ -1,7 +1,6 @@
 package inventories;
 
-import lombok.Data;
-import models.User;
+import models.Member;
 import models.Event;
 import java.util.Collection;
 import java.util.HashSet;
@@ -10,42 +9,28 @@ import play.libs.Json;
 import play.mvc.*;
 import java.util.*;
 
-@Data
-public class EventInventory {
-	public EventInventory()
-	{
-
-	}
+public class EventInventory extends Controller {
 	private HashSet<Event> events = new HashSet<Event>();
-	{
+	public EventInventory()
+	{	}
 
+	public Result getEvents() {
+		return ok();
 	}
 
-	/**
-	* Returns value of events
-	* @return
-	*/
-	public HashSet<Event> getEvents() {
-		return events;
-	}
-
-	/**
-	* Sets new value of events
-	* @param
-	*/
 	public void setEvents(HashSet<Event> events) {
 		this.events = events;
 	}
 
-	public boolean createEvent(String name, String address, String description,String organiser, double price, int maxTickets){
-		events.add(new Event(name, address, description, organiser, price, maxTickets));
-		return true;
+	public Result createEvent(String name, String address, String description, double price, int maxTickets, String tags, String blacklist, String whitelist){
+
+		return ok();
 	}
 
-	public boolean deleteEvent(Event event)
+	public Result deleteEvent(Event event)
 	{
 		if(events.remove(event))
-			return true;
-		return false;
+			return ok();
+		return ok();
 	}
 }
