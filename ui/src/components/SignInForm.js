@@ -2,6 +2,8 @@ import React from 'react';
 
 import Client from '../Client';
 
+import { Link } from 'react-router-dom';
+
 var style = {
 
   form: {
@@ -19,8 +21,8 @@ var style = {
 
 class SignInForm extends React.Component {
 
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       username: '',
       password: ''
@@ -28,6 +30,16 @@ class SignInForm extends React.Component {
 
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
+    this.logInUser = this.logInUser.bind(this);
+  }
+
+  logInUser() {
+    this.props.changeUsername(this.state.username);
+    this.props.logIn();
+  }
+
+  changeUser() {
+    this.props.changeUsername(this.state.username);
   }
 
   onChange(e) {
@@ -38,8 +50,9 @@ class SignInForm extends React.Component {
 
   async onSubmit(e) {
     e.preventDefault();
+    this.logInUser();
     //Can console log this to see what is passed.
-    Client.postLogin(this.state.username, this.state.password);
+    //Client.postLogin(this.state.username, this.state.password);
     //Test login variables sent
     //console.log(Client.testLogin());
   }

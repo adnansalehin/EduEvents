@@ -27,14 +27,6 @@ const home = () => {
   );
 }
 
-const signIn = () => {
-  return (
-    <Root>
-      <SignIn />
-    </Root>
-  );
-}
-
 const signUp = () => {
   return (
     <Root>
@@ -56,8 +48,40 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      
+      username: '',
+      loggedIn: false
     };
+
+    this.changeUsername = this.changeUsername.bind(this);
+    this.logIn = this.logIn.bind(this);
+  }
+
+  componentDidMount() {
+    console.log(this.state);
+  }
+
+  componentDidUpdate() {
+    console.log(this.state);
+  }
+
+  signIn = () => {
+    return (
+      <Root>
+        <SignIn changeUsername={this.changeUsername} username={this.state.username} logIn={this.logIn}/>
+      </Root>
+    );
+  }
+
+  changeUsername(newUsername) {
+    this.setState({
+      username: newUsername
+    })
+  }
+
+  logIn() {
+    this.setState({
+      loggedIn: true
+    })
   }
 
   //Routing set-up
@@ -66,15 +90,15 @@ class App extends Component {
       <Router>
         <div>
           <Route exact path="/" component={home} />
-          <Route exact path="/sign_in" component={signIn} />
+          <Route exact path="/sign_in" component={this.signIn} />
           <Route exact path="/sign_up" component={signUp} />
           <Route exact path="/about" component={about} />
-          <Route exact path="/memberID" component={MemberHome} />
-          <Route exact path="/memberID/account" component={MemberAccount} />
-          <Route exact path="/memberID/my_events" component={MyEvents} />
-          <Route exact path="/memberID/booked_events" component={BookedEvents} />
-          <Route exact path="/memberID/favourited_events" component={FavouritedEvents} />
-          <Route exact path="/memberID/create_events" component={CreateEvents} />
+          <Route exact path={"/" + this.state.username} component={MemberHome} />
+          <Route exact path="/:member/account" component={MemberAccount} />
+          <Route exact path="/:member/my_events" component={MyEvents} />
+          <Route exact path="/:member/booked_events" component={BookedEvents} />
+          <Route exact path="/:member/favourited_events" component={FavouritedEvents} />
+          <Route exact path="/:member/create_events" component={CreateEvents} />
         </div>
       </Router>
     );

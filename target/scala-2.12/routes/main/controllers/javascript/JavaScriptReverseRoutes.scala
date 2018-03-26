@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:D:/EduEvents/conf/routes
-// @DATE:Fri Mar 23 20:44:43 GMT 2018
+// @DATE:Mon Mar 26 00:05:48 BST 2018
 
 import play.api.routing.JavaScriptReverseRoute
 
