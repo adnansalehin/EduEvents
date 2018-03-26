@@ -11,9 +11,11 @@ public class TagInventory extends Controller {
 	private HashSet<Tag> tags = new HashSet<>();
 
 	private TagInventory(){
-		addTag("python","It is about python");
-		addTag("java", "It is about java");
-		addTag("se","it is about software engineering");
+		addTag("Science","It is about Science");
+		addTag("Computer_Science", "It is about Computer_Science");
+		addTag("History","it is about History");
+		addTag("Maths","it is about Maths");
+		addTag("Language","it is about Language");
 	}
 	public static TagInventory getInstance()
 	{

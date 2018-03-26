@@ -1,7 +1,7 @@
 package models;
 
 import play.data.validation.Constraints;
-import java.util.Collection;
+import java.util.*;
 
 public class User {
 	private int userID;
@@ -11,14 +11,16 @@ public class User {
 	@Constraints.Email
 	private String email;
 	private boolean banned;
-	private Collection<Event> created;
-	private Collection<Tag> tags;
-	private Collection<Ticket> tickets;
+	private HashSet<Event> created = new HashSet<Event>();
+	private HashSet<Tag> tags;
+	private HashSet<Ticket> tickets;
 	public User(String username, String password, String email) {
 		this.userID = username.hashCode();
 		this.username = username;
 		this.password = password;
 		this.email = email;
+		this.tags = new HashSet<Tag>();
+		this.tickets = new HashSet<Ticket>();
 		this.banned = false;
 	}
 
@@ -136,7 +138,7 @@ public class User {
 	* Returns value of created
 	* @return
 	*/
-	public Collection<Event> getCreated() {
+	public HashSet<Event> getCreated() {
 		return created;
 	}
 
@@ -144,7 +146,7 @@ public class User {
 	* Sets new value of created
 	* @param
 	*/
-	public void setCreated(Collection<Event> created) {
+	public void setCreated(HashSet<Event> created) {
 		this.created = created;
 	}
 
@@ -156,7 +158,7 @@ public class User {
 	* Sets new value of tags
 	* @param
 	*/
-	public void setTags(Collection<Tag> tags) {
+	public void setTags(HashSet<Tag> tags) {
 		this.tags = tags;
 	}
 
@@ -164,7 +166,7 @@ public class User {
 	* Returns value of tickets
 	* @return
 	*/
-	public Collection<Ticket> getTickets() {
+	public HashSet<Ticket> getTickets() {
 		return tickets;
 	}
 
@@ -172,7 +174,7 @@ public class User {
 	* Sets new value of tickets
 	* @param
 	*/
-	public void setTickets(Collection<Ticket> tickets) {
+	public void setTickets(HashSet<Ticket> tickets) {
 		this.tickets = tickets;
 	}
 }

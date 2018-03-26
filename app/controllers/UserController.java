@@ -22,16 +22,29 @@ public class UserController extends Controller {
     signUp("user","user","user@user.user");
     signUp("hot","memes","@lul");
     signUp("organiser","organiser","organiser@organiser.organiser");
-    try{
-    createAEvent("Python course","Somewhere at","Best python course ever",399.00,420,"python se","organiser");
-    createAEvent("Java course","Somewhere at","Best Java course ever",10.00,420,"java se","user");
-    System.out.println("EventController: " + eventInventory.getEvents() );}
-    catch(Exception e)
-    {
-      System.out.println("exception");
-    }
+    eventInventory.createEvent(new Event("reddit course","Somewhere at","Best reddit course ever",399.00,420,getTagFromString("Maths")));
+    eventInventory.createEvent(new Event("hella course","Somewhere at","Best hella course ever",399.00,420,getTagFromString("Language Maths")));
+    eventInventory.createEvent(new Event("random course","Somewhere at","Best random course ever",399.00,420,getTagFromString("Language History")));
+    eventInventory.createEvent(new Event("naming course","Somewhere at","Best naming course ever",399.00,420,getTagFromString("Language Maths")));
+    eventInventory.createEvent(new Event("someting course","Somewhere at","Best someting course ever",399.00,420,getTagFromString("History Maths")));
+    eventInventory.createEvent(new Event("goes skrraa course","Somewhere at","Best skrraa course ever",399.00,420,getTagFromString("History Maths")));
+
 
 	}
+
+  public HashSet<Tag> getTagFromString(String tags)
+  {
+    String[] ar = tags.split(" ");
+    System.out.println(ar);
+    HashSet<Tag> tagSet = tagInventory.getTags();
+    HashSet<User> userInv = userInventory.getUsers();
+    HashSet<Tag> tagRes = new HashSet<Tag>();
+    for(String s : ar)
+      for(Tag t : tagSet)
+        if(t.getTagName().equals(s))
+          tagRes.add(t);
+    return tagRes;
+  }
 
 	public Result login(String username, String password) {
 		boolean loginSuccessful = false;
@@ -44,11 +57,11 @@ public class UserController extends Controller {
       if(x.getUsername().equals(username) && x.getPassword().equals(password))
       {
         loginSuccessful = true;
-        login = x;
+        model = x;
+        break;
       }
-      else
-        loginSuccessful = false;}
-    this.model = login;
+    }
+    System.out.println(model.getUsername());
     System.out.println(loginSuccessful);
     JsonNode jsonNode = Json.toJson(loginSuccessful);
     return ok(jsonNode).as("application/json");
@@ -112,49 +125,18 @@ public class UserController extends Controller {
   }
 
   public Result createEvent(String name, String address, String description, double price, int maxTickets, String tags){
+    System.out.println(model.getUsername());
     boolean result = true;
     HashSet<Event> eventInv = eventInventory.getEvents();
     for(Event x : eventInv)
       if(x.getName().equals(name))
         result = false;
-    if(result) {
-      String[] ar = tags.split(" ");
-      HashSet<Tag> tagSet = tagInventory.getTags();
-      HashSet<User> userInv = userInventory.getUsers();
-      HashSet<Tag> tagRes = new HashSet<Tag>();
-      for(String s : ar)
-        for(Tag t : tagSet)
-          if(t.getTagName().equals(s))
-            tagRes.add(t);
-      Event newEvent = new Event(name,address,description,price,maxTickets,tagRes);
-  		eventInventory.createEvent(newEvent);
-      model.addCreated(newEvent);
-    }
-    JsonNode jsonNode = Json.toJson(result);
-    return ok(jsonNode).as("application/json");
-	}
-
-  public Result createAEvent(String name, String address, String description, double price, int maxTickets, String tags, String username){
-    boolean result = true;
-    HashSet<Event> eventInv = eventInventory.getEvents();
-    for(Event x : eventInv)
-      if(x.getName().equals(name))
-        result = false;
-    if(result) {
-      String[] ar = tags.split(" ");
-      HashSet<Tag> tagSet = tagInventory.getTags();
-      HashSet<User> userInv = userInventory.getUsers();
-      HashSet<Tag> tagRes = new HashSet<Tag>();
-      for(String s : ar)
-        for(Tag t : tagSet)
-          if(t.getTagName().equals(s))
-            tagRes.add(t);
-      Event newEvent = new Event(name,address,description,price,maxTickets,tagRes);
-  		eventInventory.createEvent(newEvent);
-      for(User u : userInv)
-        if(u.getUsername().equals(username))
-          u.addCreated(newEvent);
-    }
+      if(result)
+      {
+        Event newEvent = new Event(name,address,description,price,maxTickets,getTagFromString(tags));
+    		eventInventory.createEvent(newEvent);
+        model.addCreated(newEvent);
+      }
     JsonNode jsonNode = Json.toJson(result);
     return ok(jsonNode).as("application/json");
 	}
