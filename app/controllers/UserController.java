@@ -31,8 +31,8 @@ public class UserController extends Controller {
 
 	public Result login(String username, String password) {
 		boolean loginSuccessful = false;
-		this.model.setUsername(username);
-        this.model.setPassword(password);
+		model.setUsername(username);
+    model.setPassword(password);
 
         if(userInventory.isRegistered(model))
         	loginSuccessful = true;
