@@ -47,8 +47,8 @@ class CreateEventForm extends React.Component {
     super(props);
     this.state = {
       name: '',
-      description: '',
       address: '',
+      description: '',
       price: null,
       maxTickets: null
     }
@@ -63,9 +63,9 @@ class CreateEventForm extends React.Component {
     })
   }
 
-  onSubmit(e) {
+  async onSubmit(e) {
     e.preventDefault();
-    var response = Client.createEvent(this.state.name, this.state.description, this.state.address, this.state.price, this.state.maxTickets, this.state.tag);
+    var response = await Client.createEvent(this.state.name, this.state.address, this.state.description, this.state.price, this.state.maxTickets, this.state.tag);
     console.log(response);
   }
 
@@ -143,7 +143,7 @@ class CreateEventForm extends React.Component {
               onChange={this.onChange}
               type="number"
               name="price"
-              step="1"
+              step="0.01"
               className="form-control"
             />
           </div>
@@ -153,7 +153,7 @@ class CreateEventForm extends React.Component {
             <input
               onChange={this.onChange}
               type="number"
-              name="maxTicket"
+              name="maxTickets"
               step="1"
               className="form-control"
             />

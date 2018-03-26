@@ -64,8 +64,7 @@ class SearchResults extends React.Component {
     //}
 
     //return list;
-    var response = [];
-    response = await Client.searchEvents(this.props.search, this.props.tag);
+    var response = await Client.searchEvents(this.props.search, this.props.tag);
     console.log(response);
   }
 

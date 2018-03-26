@@ -26,20 +26,20 @@ async function signupUser(username, password, email) {
     .then(parseJSON)
 }
 
-async function createEvent(name, description, address, price, maxTickets) {
+async function createEvent(name, address, description, price, maxTickets, tag) {
 
-  var url = "/createEvent/" + name + "/" + description + "/" + address + "/" + price + "/" + maxTickets;
+  var url = "/createEvent/" + name + "/" + address + "/" + description + "/" + price + "/" + maxTickets + "/" +tag;
 
-  return fetch(url)
+  return await fetch(url)
     .then(checkStatus)
     .then(parseJSON)
 }
 
 async function searchEvents(term, tags) {
 
-  var url = "/searchEvents" + term + "/" + tags;
+  var url = "/searchEvents/" + term + "/" + tags;
 
-  return fetch(url)
+  return await fetch(url)
     .then(checkStatus)
     .then(parseJSON)
 }

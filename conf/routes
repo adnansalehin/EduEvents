@@ -9,9 +9,9 @@ GET		/login/:username/:password			controllers.UserController.login(username, pas
 
 GET		/signup/:username/:password/:email	controllers.UserController.signUp(username, password, email)
 
-GET		/createEvent/:name/:address/:description/:price/:maxTickets/:tags		controllers.EventController.createEvent(name, address, description, price, maxTickets, tags)
+GET		/createEvent/:name/:address/:description/:price/:maxTickets/:tags		controllers.UserController.createEvent(name, address, description, price: Double, maxTickets: Integer, tags)
 
-GET		/searchEvents/:term/:tags			controllers.EventController.search(term, tags)
+GET		/searchEvents/:term/:tags			controllers.UserController.search(term, tags)
 
 # Serve static assets under public directory
 GET     /*file								controllers.FrontendController.assetOrDefault(file)
