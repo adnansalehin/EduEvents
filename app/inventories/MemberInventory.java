@@ -9,10 +9,14 @@ import java.util.Collection;
 import java.util.HashSet;
 
 public class MemberInventory extends Controller {
+	private MemberInventory inventory = new MemberInventory();
 	private Collection<Member> users = new HashSet<Member>();
+
+	private MemberInventory(){}
+
+	public MemberInventory getInstance()
 	{
-		users.add(new Member("adnan", "qwerty", "adnan@fuckyou.com"));
-		users.add(new Member("adnan2", "qwerty", "adnan@fuckyou.com"));
+		return inventory;
 	}
 
 	public Result register(String username, String password, String email)

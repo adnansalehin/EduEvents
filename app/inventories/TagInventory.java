@@ -7,8 +7,14 @@ import play.libs.Json;
 import play.mvc.*;
 
 public class TagInventory extends Controller {
+	private TagInventory inventory = new TagInventory();
 	private HashSet<Tag> tags = new HashSet<>();
 
+	private TagInventory(){}
+	public TagInventory getInstance()
+	{
+		return inventory;
+	}
 	public Result getTags() {
 		JsonNode jsonNode = Json.toJson(tags);
 		return ok(jsonNode).as("application/json");

@@ -16,10 +16,11 @@ import inventories.UserInventory.*;
 
 public class UserController extends Controller {
 
-    private User user;
-    private UserInventory userInventory;
-	public UserController(User user) {
-		this.user = user;
+    private User model;
+    private UserInventory userInventory = UserInventory.getInstance();
+    private EventInventory eventInventory = EventInventory.getInstance();
+	public UserController(User model) {
+		this.model = model;
 	}
 
 	//Test variables can be deleted
@@ -47,10 +48,22 @@ public class UserController extends Controller {
 		this.user.password = password;
 		this.user.email = email;
 
-		signUpSuccessful = userInventory.getUserInventory().add(user);
+		signUpSuccessful = userInventory.add(user);
 
 		return ok("return: "+signUpSuccessful).as("application/json");
 	}
+
+  public Result bookEvent(int eventID,int noOfTickets, double price)
+  {
+    Event result = eventInventory.getEventById(eventID);
+    if(result.getNoOfSold()+noOfTickets > result.getMaxTickets())
+      result = null;
+    else
+      result.bookTicket(noOfTickets);
+    model.addTicket(new Ticket(new Date(),price));
+    JsonNode jsonNode = Json.toJson(result);
+    return ok(jsonNode).as("application/json");
+  }
 
 
 

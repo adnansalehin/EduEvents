@@ -27,6 +27,11 @@ public class Event {
 		this.noOfSold = 0;
 	}
 
+	public void bookTicket(int i)
+	{
+		this.noOfSold += i;
+	}
+
 
 
 	public boolean isFullyBooked() {

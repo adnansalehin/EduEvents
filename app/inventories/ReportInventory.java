@@ -8,7 +8,15 @@ import java.util.HashSet;
 
 @Data
 public class ReportInventory {
+	private ReportInventory inventory = new ReportInventory();
 	private Collection<Report> report = new HashSet<>();
+
+	private ReportInventory(){}
+
+	public ReportInventory getInstance()
+	{
+		return inventory;
+	}
 
 	public void createReport(int reportID, String message, Event event)
 	{
