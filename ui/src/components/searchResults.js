@@ -3,6 +3,8 @@ import React from 'react';
 import Event from './Event';
 import SubHeader from './SubHeader';
 
+import Client from '../Client';
+
 var style = {
 
   body: {
@@ -54,16 +56,17 @@ class SearchResults extends React.Component {
     );
   }
 
-  displayEvents() {
-    var list = [];
+  async displayEvents() {
+    //var list = [];
 
-    //api call
+    //for (var i = 0; i < 20; i++){
+    //  list.push(this.component());
+    //}
 
-    for (var i = 0; i < 20; i++){
-      list.push(this.component());
-    }
-
-    return list;
+    //return list;
+    var response = [];
+    response = await Client.searchEvents(this.props.search, this.props.tag);
+    console.log(response);
   }
 
   //Strange interaction between this component and subheader so remade subheader in this component.

@@ -2,6 +2,8 @@ import React from 'react';
 
 import { withRouter } from 'react-router-dom';
 
+import Client from '../../../Client';
+
 var style = {
 
   body: {
@@ -63,6 +65,8 @@ class CreateEventForm extends React.Component {
 
   onSubmit(e) {
     e.preventDefault();
+    var response = Client.createEvent(this.state.name, this.state.description, this.state.address, this.state.price, this.state.maxTickets, this.state.tag);
+    console.log(response);
   }
 
   options(reps) {

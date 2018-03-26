@@ -26,6 +26,24 @@ async function signupUser(username, password, email) {
     .then(parseJSON)
 }
 
+async function createEvent(name, description, address, price, maxTickets) {
+
+  var url = "/createEvent/" + name + "/" + description + "/" + address + "/" + price + "/" + maxTickets;
+
+  return fetch(url)
+    .then(checkStatus)
+    .then(parseJSON)
+}
+
+async function searchEvents(term, tags) {
+
+  var url = "/searchEvents" + term + "/" + tags;
+
+  return fetch(url)
+    .then(checkStatus)
+    .then(parseJSON)
+}
+
 function checkStatus(response) {
   if (response.status >= 200 && response.status < 300) {
     return response;
@@ -43,6 +61,6 @@ function parseJSON(response) {
 
 //Exported variable
 //Define the methods that components need access to.
-const Client = { getSummary, postLogin, signupUser };
+const Client = { getSummary, postLogin, signupUser, createEvent, searchEvents };
 
 export default Client;
