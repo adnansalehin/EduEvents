@@ -17,8 +17,8 @@ public class EventController extends Controller {
   private ReportInventory reportInventory = ReportInventory.getInstance();
 	public EventController(Event event) {
     this.event = event;
-    createEvent("Python course","Somewhere at","Best python course ever",399.00,420,"python se","organiser");
-    createEvent("Java course","Somewhere at","Best Java course ever",10.00,420,"java se","user");
+    createEvent("Python course","Somewhere at","Best python course ever",399.00,420,"python","organiser");
+    createEvent("Java course","Somewhere at","Best Java course ever",10.00,420,"java","user");
 
 	}
 

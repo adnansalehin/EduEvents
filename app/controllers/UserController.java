@@ -17,6 +17,7 @@ public class UserController extends Controller {
     private User model;
     private UserInventory userInventory = UserInventory.getInstance();
     private EventInventory eventInventory = EventInventory.getInstance();
+    private TagInventory tagInventory = TagInventory.getInstance();
 	public UserController() {
     signUp("user","user","user@user.user");
     signUp("hot","memes","@lul");
@@ -56,6 +57,31 @@ public class UserController extends Controller {
     JsonNode jsonNode = Json.toJson(success);
     return ok(jsonNode).as("application/json");
 	}
+
+  public Result search(String term, String tags)
+  {
+    String[] ar = tags.split(" ");
+    HashSet<Tag> tagSet = tagInventory.getTags();
+    HashSet<User> userInv = userInventory.getUsers();
+    HashSet<Tag> tagRes = new HashSet<Tag>();
+    for(String s : ar)
+      for(Tag t : tagSet)
+        if(t.getTagName().equals(s))
+          tagRes.add(t);
+    HashSet<Event> events = eventInventory.getEvents();
+    HashSet<Event> filtered = new HashSet<Event>();
+    for(Event e : events)
+    {
+      if(e.getName().contains(term) || e.getDescription().contains(term) || e.getAddress().contains(term))
+        filtered.add(e);
+      for(Tag t : e.getTags())
+        for(Tag l : tagRes)
+          if(t.equals(l))
+            filtered.add(e);
+    }
+    JsonNode jsonNode = Json.toJson(filtered);
+    return ok(jsonNode).as("application/json");
+  }
 
   public Result getModel()
   {
