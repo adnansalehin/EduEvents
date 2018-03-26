@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:D:/EduEvents/conf/routes
-// @DATE:Mon Mar 26 00:05:48 BST 2018
+// @DATE:Mon Mar 26 02:44:48 BST 2018
 
 import play.api.routing.JavaScriptReverseRoute
 
@@ -12,26 +12,6 @@ import _root_.play.libs.F
 // @LINE:6
 package controllers.javascript {
 
-  // @LINE:14
-  class ReverseHomeController(_prefix: => String) {
-
-    def _defaultPrefix: String = {
-      if (_prefix.endsWith("/")) "" else "/"
-    }
-
-  
-    // @LINE:14
-    def appSummary: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.HomeController.appSummary",
-      """
-        function() {
-          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "api/summary"})
-        }
-      """
-    )
-  
-  }
-
   // @LINE:6
   class ReverseFrontendController(_prefix: => String) {
 
@@ -40,7 +20,7 @@ package controllers.javascript {
     }
 
   
-    // @LINE:17
+    // @LINE:16
     def assetOrDefault: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.FrontendController.assetOrDefault",
       """
@@ -70,7 +50,17 @@ package controllers.javascript {
     }
 
   
-    // @LINE:11
+    // @LINE:10
+    def signUp: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.UserController.signUp",
+      """
+        function(username0,password1,email2) {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "signup/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[String]].javascriptUnbind + """)("username", username0)) + "/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[String]].javascriptUnbind + """)("password", password1)) + "/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[String]].javascriptUnbind + """)("email", email2))})
+        }
+      """
+    )
+  
+    // @LINE:13
     def testLogin: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.UserController.testLogin",
       """

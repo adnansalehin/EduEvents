@@ -8,14 +8,22 @@ function getSummary(cb) {
     .then(cb);
 }
 
-//Post login information
-//TO-DO define url
 function postLogin(username, password) {
 
   var url = "/login/" + username + "/" + password
 
   return fetch(url)
     .then(checkStatus)
+    .then(parseJSON)
+}
+
+function signupUser(username, password, email) {
+
+  var url = "/signup/" + username + "/" + password + "/" + email;
+
+  return fetch(url)
+    .then(checkStatus)
+    .then(parseJSON)
 }
 
 //Test function
@@ -42,6 +50,6 @@ function parseJSON(response) {
 
 //Exported variable
 //Define the methods that components need access to.
-const Client = { getSummary, postLogin, testLogin };
+const Client = { getSummary, postLogin, signupUser };
 
 export default Client;

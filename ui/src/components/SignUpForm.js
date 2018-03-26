@@ -23,8 +23,6 @@ class SignUpForm extends React.Component {
     super(props);
     this.state = {
       username: '',
-      firstname: '',
-      lastname: '',
       email: '',
       password: '',
       passwordConfirmation: ''
@@ -42,37 +40,12 @@ class SignUpForm extends React.Component {
 
   onSubmit(e) {
     e.preventDefault();
-    //Proper call to api
-    //Client...
-    //Console log test -->
-    console.log(Client.getSummary());
+    Client.signupUser(this.state.username, this.state.password, this.state.email);
   }
 
   render() {
     return (
       <form onSubmit={this.onSubmit} style={style.form}>
-
-        <div className="form-group">
-          <label className="control-label">First Name</label>
-          <input
-            value={this.state.firstname}
-            onChange={this.onChange}
-            type="text"
-            name="firstname"
-            className="form-control"
-          />
-        </div>
-
-        <div className="form-group">
-          <label className="control-label">Last Name</label>
-          <input
-            value={this.state.lastname}
-            onChange={this.onChange}
-            type="text"
-            name="lastname"
-            className="form-control"
-          />
-        </div>
 
         <div className="form-group">
           <label className="control-label">Username</label>

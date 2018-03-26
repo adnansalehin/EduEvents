@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:D:/EduEvents/conf/routes
-// @DATE:Mon Mar 26 00:05:48 BST 2018
+// @DATE:Mon Mar 26 02:44:48 BST 2018
 
 
 package router {

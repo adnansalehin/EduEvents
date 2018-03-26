@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:D:/EduEvents/conf/routes
-// @DATE:Mon Mar 26 00:05:48 BST 2018
+// @DATE:Mon Mar 26 02:44:48 BST 2018
 
 import play.api.mvc.Call
 
@@ -12,21 +12,6 @@ import _root_.play.libs.F
 // @LINE:6
 package controllers {
 
-  // @LINE:14
-  class ReverseHomeController(_prefix: => String) {
-    def _defaultPrefix: String = {
-      if (_prefix.endsWith("/")) "" else "/"
-    }
-
-  
-    // @LINE:14
-    def appSummary(): Call = {
-      
-      Call("GET", _prefix + { _defaultPrefix } + "api/summary")
-    }
-  
-  }
-
   // @LINE:6
   class ReverseFrontendController(_prefix: => String) {
     def _defaultPrefix: String = {
@@ -34,7 +19,7 @@ package controllers {
     }
 
   
-    // @LINE:17
+    // @LINE:16
     def assetOrDefault(file:String): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + implicitly[play.api.mvc.PathBindable[String]].unbind("file", file))
@@ -55,7 +40,13 @@ package controllers {
     }
 
   
-    // @LINE:11
+    // @LINE:10
+    def signUp(username:String, password:String, email:String): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "signup/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[String]].unbind("username", username)) + "/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[String]].unbind("password", password)) + "/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[String]].unbind("email", email)))
+    }
+  
+    // @LINE:13
     def testLogin(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "testLogin")
