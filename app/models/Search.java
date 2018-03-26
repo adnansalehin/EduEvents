@@ -1,6 +1,5 @@
 package models;
 
-import lombok.Data;
 import com.fasterxml.jackson.databind.JsonNode;
 import play.libs.Json;
 import play.mvc.*;
@@ -11,7 +10,6 @@ import models.Event;
 import models.Tag;
 import models.Event;
 
-@Data
 public class Search extends Controller {
   private String term;
   private HashSet<Tag> tags;
@@ -24,23 +22,16 @@ public class Search extends Controller {
   }
 
 
-  public Result results(String term, String tags, String address, String organiser)
+  public Result results(String term, String tags, String address)
   {
-    events = new EventInventory();
-    events.setEvents(new HashSet<Event>());
-    events.createEvent("something","else","idk","lul",20.01,20);
-    events.createEvent("asd","elda2dse","ia2d2ddk","lua2d2adl",20.01,20);
-    events.createEvent("ve2a2v","va2v2a","va2v2ava2","va2v2av2",20.01,20);
-
-    HashSet<Event> inventory = events.getEvents();
+    EventInventory inventory = EventInventory.getInstance();
+    HashSet<Event> events = inventory.getEvents();
     HashSet<Event> filtered = new HashSet<Event>();
-    for(Event e : inventory)
+    for(Event e : events)
     {
       if(e.getName().contains(term) || e.getDescription().contains(term))
         filtered.add(e);
       if(e.getAddress().contains(address))
-        filtered.add(e);
-      if(e.getOrganiser().contains(organiser))
         filtered.add(e);
     }
     JsonNode jsonNode = Json.toJson(filtered);

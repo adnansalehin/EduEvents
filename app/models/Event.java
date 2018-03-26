@@ -10,9 +10,9 @@ public class Event {
 	private int noOfSold;
 	private String description;
 	private double price;
-	private HashSet<Member> blacklist;
-	private HashSet<Member> whitelist;
-	private HashSet<Member> waitlist;
+	private HashSet<User> blacklist;
+	private HashSet<User> whitelist;
+	private HashSet<User> waitlist;
 	private int maxTickets;
 
 
@@ -157,7 +157,7 @@ public class Event {
 	* Returns value of blacklist
 	* @return
 	*/
-	public HashSet<Member> getBlacklist() {
+	public HashSet<User> getBlacklist() {
 		return blacklist;
 	}
 
@@ -165,7 +165,7 @@ public class Event {
 	* Sets new value of blacklist
 	* @param
 	*/
-	public void setBlacklist(HashSet<Member> blacklist) {
+	public void setBlacklist(HashSet<User> blacklist) {
 		this.blacklist = blacklist;
 	}
 
@@ -173,7 +173,7 @@ public class Event {
 	* Returns value of whitelist
 	* @return
 	*/
-	public HashSet<Member> getWhitelist() {
+	public HashSet<User> getWhitelist() {
 		return whitelist;
 	}
 
@@ -181,7 +181,7 @@ public class Event {
 	* Sets new value of whitelist
 	* @param
 	*/
-	public void setWhitelist(HashSet<Member> whitelist) {
+	public void setWhitelist(HashSet<User> whitelist) {
 		this.whitelist = whitelist;
 	}
 
@@ -189,7 +189,7 @@ public class Event {
 	* Returns value of waitlist
 	* @return
 	*/
-	public HashSet<Member> getWaitlist() {
+	public HashSet<User> getWaitlist() {
 		return waitlist;
 	}
 
@@ -197,7 +197,7 @@ public class Event {
 	* Sets new value of waitlist
 	* @param
 	*/
-	public void setWaitlist(HashSet<Member> waitlist) {
+	public void setWaitlist(HashSet<User> waitlist) {
 		this.waitlist = waitlist;
 	}
 

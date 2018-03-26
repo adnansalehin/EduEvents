@@ -7,7 +7,7 @@ import play.libs.Json;
 import play.mvc.*;
 
 public class TagInventory extends Controller {
-	private TagInventory inventory = new TagInventory();
+	private static TagInventory inventory = new TagInventory();
 	private HashSet<Tag> tags = new HashSet<>();
 
 	private TagInventory(){}

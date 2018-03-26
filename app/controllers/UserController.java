@@ -1,14 +1,15 @@
 package controllers;
 
 import com.fasterxml.jackson.databind.JsonNode;
-import models.User;
+import models.*;
+import inventories.*;
+import java.util.*;
 import play.libs.Json;
 import inventories.UserInventory;
 import play.data.Form;
 import play.data.FormFactory;
 import play.mvc.Controller;
 import play.mvc.*;
-import models.User.*;
 import inventories.UserInventory.*;
 //import javax.inject.Inject;
 
@@ -19,8 +20,8 @@ public class UserController extends Controller {
     private User model;
     private UserInventory userInventory = UserInventory.getInstance();
     private EventInventory eventInventory = EventInventory.getInstance();
-	public UserController(User model) {
-		this.model = model;
+	public UserController() {
+
 	}
 
 	//Test variables can be deleted
@@ -29,12 +30,11 @@ public class UserController extends Controller {
 
 
 	public Result login(String username, String password) {
-
 		boolean loginSuccessful = false;
-		this.user.setUsername(username);
-        this.user.setPassword(password);
+		this.model.setUsername(username);
+        this.model.setPassword(password);
 
-        if(userInventory.isRegistered(user))
+        if(userInventory.isRegistered(model))
         	loginSuccessful = true;
         else
         	loginSuccessful = false;
@@ -43,34 +43,21 @@ public class UserController extends Controller {
 	}
 
 	public Result signUp(String username, String password, String email) {
-		boolean signUpSuccessful = false;
-		this.user.username = username;
-		this.user.password = password;
-		this.user.email = email;
-
-		signUpSuccessful = userInventory.add(user);
-
-		return ok("return: "+signUpSuccessful).as("application/json");
+		userInventory.addUser(new User(username, password, email));
+    System.out.println(userInventory.getUsers());
+		return ok().as("application/json");
 	}
 
   public Result bookEvent(int eventID,int noOfTickets, double price)
   {
     Event result = eventInventory.getEventById(eventID);
+    Date date = new Date();
     if(result.getNoOfSold()+noOfTickets > result.getMaxTickets())
       result = null;
     else
       result.bookTicket(noOfTickets);
-    model.addTicket(new Ticket(new Date(),price));
+    model.addTicket(new Ticket(date.toString(),price));
     JsonNode jsonNode = Json.toJson(result);
     return ok(jsonNode).as("application/json");
   }
-
-
-
-		//Test method
-	public Result testLogin(){
-
-		return ok(username + "-" + password).as("application/json");
-
-	}
 }
