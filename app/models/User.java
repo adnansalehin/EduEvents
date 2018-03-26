@@ -20,6 +20,9 @@ public class User {
 		this.email = email;
 		this.banned = false;
 	}
+
+	public User()
+	{}
 	//add user's interests
 	public void addTag(Tag tag) {
 		tags.add(tag);

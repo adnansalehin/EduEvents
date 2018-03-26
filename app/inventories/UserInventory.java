@@ -10,7 +10,7 @@ import java.util.HashSet;
 
 public class UserInventory {
 	private static UserInventory inventory = new UserInventory();
-	private Collection<User> users = new HashSet<>();
+	private HashSet<User> users = new HashSet<User>();
 	protected UserInventory()
 	{}
 
@@ -50,7 +50,7 @@ public class UserInventory {
 	* Returns value of users
 	* @return
 	*/
-	public Collection<User> getUsers() {
+	public HashSet<User> getUsers() {
 		return users;
 	}
 
@@ -58,7 +58,7 @@ public class UserInventory {
 	* Sets new value of users
 	* @param
 	*/
-	public void setUsers(Collection<User> users) {
+	public void setUsers(HashSet<User> users) {
 		this.users = users;
 	}
 
