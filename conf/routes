@@ -9,8 +9,5 @@ GET		/login/:username/:password			controllers.UserController.login(username, pas
 
 GET		/signup/:username/:password/:email	controllers.UserController.signUp(username, password, email)
 
-#Test url can be removed
-GET		/testLogin							controllers.UserController.testLogin
-
 # Serve static assets under public directory
 GET     /*file								controllers.FrontendController.assetOrDefault(file)
