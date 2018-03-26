@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { withRouter } from 'react-router-dom';
+
 var style = {
 
   body: {
@@ -42,7 +44,11 @@ class CreateEventForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      
+      name: '',
+      description: '',
+      address: '',
+      price: null,
+      maxTickets: null
     }
 
     this.onChange = this.onChange.bind(this);
@@ -57,7 +63,6 @@ class CreateEventForm extends React.Component {
 
   onSubmit(e) {
     e.preventDefault();
-    console.log(this.state)
   }
 
   options(reps) {
@@ -132,8 +137,9 @@ class CreateEventForm extends React.Component {
             <label className="control-label" style={style.label}><h5>Price of ticket</h5></label>
             <input
               onChange={this.onChange}
-              type="text"
+              type="number"
               name="price"
+              step="1"
               className="form-control"
             />
           </div>
@@ -142,8 +148,9 @@ class CreateEventForm extends React.Component {
             <label className="control-label" style={style.label}><h5>Max tickets</h5></label>
             <input
               onChange={this.onChange}
-              type="text"
+              type="number"
               name="maxTicket"
+              step="1"
               className="form-control"
             />
           </div>
@@ -164,4 +171,4 @@ class CreateEventForm extends React.Component {
   }
 }
 
-export default CreateEventForm;
+export default withRouter(CreateEventForm);
