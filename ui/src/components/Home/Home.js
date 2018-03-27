@@ -56,6 +56,11 @@ const style = {
 }
 
 class Home extends React.Component {
+
+  constructor(props) {
+    super(props);
+  }
+
   render() {
     return (
       <div style={style.body}>
@@ -66,7 +71,7 @@ class Home extends React.Component {
         </div>
         <div style={style.searchContainer}>
           <h3 style={style.searchHeader}>Search for event</h3>
-          <SearchField />
+          <SearchField setSearch={this.props.setSearch} loggedIn={this.props.loggedIn} />
         </div>
       </div>
     );

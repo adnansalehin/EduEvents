@@ -16,6 +16,10 @@ var style = {
   button: {
     backgroundColor: '#3baf36',
     color: 'white'
+  },
+
+  failed: {
+    color: 'red'
   }
 }
 
@@ -50,18 +54,22 @@ class SignInForm extends React.Component {
 
   async onSubmit(e) {
     e.preventDefault();
-    var response = Client.postLogin(this.state.username, this.state.password);
+    this.logInUser();
+    //Passing information to backend server
+    var response = await Client.postLogin(this.state.username, this.state.password);
     console.log(response);
-    if (response) {
+    if (response !== false) {
       this.props.history.push("/loggedIn");
     } else {
-      this.props.history.push("/sign_in");
+      this.props.history.push("/sign_in_failed");
     }
   }
 
   render() {
     return (
       <form onSubmit={this.onSubmit} style={style.form}>
+
+        <h5 style={style.failed}>{this.props.failed}</h5>
 
         <div className="form-group">
           <label className="control-label">Username</label>

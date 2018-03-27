@@ -9,7 +9,10 @@ import Home from './components/Home/Home';
 import About from './components/About';
 import SignIn from './components/SignIn';
 import SignUp from './components/SignUp';
+import SearchResults from './components/SearchResults';
+import SuccessfulSignUp from './components/SuccessfulSignUp';
 
+import MemberRoot from './components/MemberInterface/MemberRoot';
 import MemberHome from './components/MemberInterface/MemberHome';
 import MemberAccount from './components/MemberInterface/MemberAccount/MemberAccount';
 import MyEvents from './components/MemberInterface/MemberEvents/MyEvents';
@@ -19,14 +22,6 @@ import CreateEvents from './components/MemberInterface/MemberEvents/CreateEvents
 
 //Components to be rendered
 //Root renders a header and footer, where children can be passed as parameters.
-const home = () => {
-  return (
-    <Root>
-      <Home />
-    </Root>
-  );
-}
-
 const signUp = () => {
   return (
     <Root>
@@ -42,6 +37,14 @@ const about = () => {
     </Root>
   );
 }
+
+const failedSignUp = () => {
+  return (
+    <Root>
+      <SignUp failed="Sign up failed!" />
+    </Root>
+  );
+}
 //---
 
 class App extends Component {
@@ -49,11 +52,15 @@ class App extends Component {
     super(props);
     this.state = {
       username: '',
-      loggedIn: false
+      loggedIn: false,
+      search: '',
+      tag: ''
     };
 
     this.changeUsername = this.changeUsername.bind(this);
     this.logIn = this.logIn.bind(this);
+    this.setSearch = this.setSearch.bind(this);
+    this.searchResults = this.searchResults.bind(this);
   }
 
   componentDidMount() {
@@ -64,12 +71,51 @@ class App extends Component {
     console.log(this.state);
   }
 
+  home = () => {
+    return (
+      <Root>
+        <Home setSearch={this.setSearch} loggedIn={this.state.loggedIn}/>
+      </Root>
+    );
+  }
+
   signIn = () => {
     return (
       <Root>
         <SignIn changeUsername={this.changeUsername} username={this.state.username} logIn={this.logIn}/>
       </Root>
     );
+  }
+
+  signInFailed = () => {
+    return (
+      <Root>
+        <SignIn changeUsername={this.changeUsername} username={this.state.username} logIn={this.logIn} failed="Sign in failed!" />
+      </Root>
+    );
+  }
+
+  setSearch(search, tag) {
+    this.setState({
+      search: search,
+      tag: tag
+    })
+  }
+
+  searchResults() {
+    if (this.state.loggedIn) {
+      return (
+        <MemberRoot>
+          <SearchResults search={this.state.search} tag={this.state.tag} />
+        </MemberRoot>
+      );
+    } else {
+      return (
+        <Root>
+          <SearchResults search={this.state.search} tag={this.state.tag} />
+        </Root>
+      );
+    }
   }
 
   changeUsername(newUsername) {
@@ -89,16 +135,21 @@ class App extends Component {
     return (
       <Router>
         <div>
-          <Route exact path="/" component={home} />
+          <Route exact path="/" component={this.home} />
           <Route exact path="/sign_in" component={this.signIn} />
+          <Route exact path="/sign_in_failed" component={this.signInFailed} />
           <Route exact path="/sign_up" component={signUp} />
+          <Route exact path="/sign_up_successful" component={SuccessfulSignUp} />
+          <Route exact path="/sign_up_failed" component={failedSignUp} />
           <Route exact path="/about" component={about} />
-          <Route exact path="/loggedIn" component={MemberHome} />
-          <Route exact path="/loggedIn/account" component={MemberAccount} />
-          <Route exact path="/loggedIn/my_events" component={MyEvents} />
-          <Route exact path="/loggedIn/booked_events" component={BookedEvents} />
-          <Route exact path="/loggedIn/favourited_events" component={FavouritedEvents} />
-          <Route exact path="/loggedIn/create_events" component={CreateEvents} />
+          <Route exact path={"/loggedin"} component={MemberHome} />
+          <Route exact path="/loggedin/account" component={MemberAccount} />
+          <Route exact path="/loggedin/my_events" component={MyEvents} />
+          <Route exact path="/loggedin/booked_events" component={BookedEvents} />
+          <Route exact path="/loggedin/favourited_events" component={FavouritedEvents} />
+          <Route exact path="/loggedin/create_events" component={CreateEvents} />
+          <Route exact path="/search_results" component={this.searchResults} />
+          <Route exact path="/loggedIn/search_results" component={this.searchResults} />
         </div>
       </Router>
     );

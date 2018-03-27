@@ -13,6 +13,8 @@ GET		/createEvent/:name/:address/:description/:price/:maxTickets/:tags		controll
 
 GET		/searchEvents/:term/:tags			controllers.UserController.search(term, tags)
 
+GET /bookEvent/:id/:tickets/:price  controllers.UserController.bookEvent(id : Integer, tickets : Integer, price : Double)
+
 GET		/getModel							controllers.UserController.getModel()
 
 # Serve static assets under public directory

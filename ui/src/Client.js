@@ -44,15 +44,6 @@ async function searchEvents(term, tags) {
     .then(parseJSON)
 }
 
-async function getModel() {
-
-  var url = "/getModel";
-
-  return await fetch(url)
-    .then(checkStatus)
-    .then(parseJSON)
-}
-
 function checkStatus(response) {
   if (response.status >= 200 && response.status < 300) {
     return response;
