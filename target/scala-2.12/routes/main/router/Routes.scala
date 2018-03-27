@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:D:/EduEvents/conf/routes
-// @DATE:Mon Mar 26 02:44:48 BST 2018
+// @DATE:Tue Mar 27 02:12:44 BST 2018
 
 package router
 
@@ -43,7 +43,9 @@ class Routes(
     ("""GET""", this.prefix, """controllers.FrontendController.index()"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """login/""" + "$" + """username<[^/]+>/""" + "$" + """password<[^/]+>""", """controllers.UserController.login(username:String, password:String)"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """signup/""" + "$" + """username<[^/]+>/""" + "$" + """password<[^/]+>/""" + "$" + """email<[^/]+>""", """controllers.UserController.signUp(username:String, password:String, email:String)"""),
-    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """testLogin""", """controllers.UserController.testLogin"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """createEvent/""" + "$" + """name<[^/]+>/""" + "$" + """address<[^/]+>/""" + "$" + """description<[^/]+>/""" + "$" + """price<[^/]+>/""" + "$" + """maxTickets<[^/]+>/""" + "$" + """tags<[^/]+>""", """controllers.UserController.createEvent(name:String, address:String, description:String, price:Double, maxTickets:Integer, tags:String)"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """searchEvents/""" + "$" + """term<[^/]+>/""" + "$" + """tags<[^/]+>""", """controllers.UserController.search(term:String, tags:String)"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """getModel""", """controllers.UserController.getModel()"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """""" + "$" + """file<.+>""", """controllers.FrontendController.assetOrDefault(file:String)"""),
     Nil
   ).foldLeft(List.empty[(String,String,String)]) { (s,e) => e.asInstanceOf[Any] match {
@@ -106,29 +108,65 @@ class Routes(
     )
   )
 
-  // @LINE:13
-  private[this] lazy val controllers_UserController_testLogin3_route = Route("GET",
-    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("testLogin")))
+  // @LINE:12
+  private[this] lazy val controllers_UserController_createEvent3_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("createEvent/"), DynamicPart("name", """[^/]+""",true), StaticPart("/"), DynamicPart("address", """[^/]+""",true), StaticPart("/"), DynamicPart("description", """[^/]+""",true), StaticPart("/"), DynamicPart("price", """[^/]+""",true), StaticPart("/"), DynamicPart("maxTickets", """[^/]+""",true), StaticPart("/"), DynamicPart("tags", """[^/]+""",true)))
   )
-  private[this] lazy val controllers_UserController_testLogin3_invoker = createInvoker(
-    UserController_0.testLogin,
+  private[this] lazy val controllers_UserController_createEvent3_invoker = createInvoker(
+    UserController_0.createEvent(fakeValue[String], fakeValue[String], fakeValue[String], fakeValue[Double], fakeValue[Integer], fakeValue[String]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.UserController",
-      "testLogin",
-      Nil,
+      "createEvent",
+      Seq(classOf[String], classOf[String], classOf[String], classOf[Double], classOf[Integer], classOf[String]),
       "GET",
-      this.prefix + """testLogin""",
-      """Test url can be removed""",
+      this.prefix + """createEvent/""" + "$" + """name<[^/]+>/""" + "$" + """address<[^/]+>/""" + "$" + """description<[^/]+>/""" + "$" + """price<[^/]+>/""" + "$" + """maxTickets<[^/]+>/""" + "$" + """tags<[^/]+>""",
+      """""",
+      Seq()
+    )
+  )
+
+  // @LINE:14
+  private[this] lazy val controllers_UserController_search4_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("searchEvents/"), DynamicPart("term", """[^/]+""",true), StaticPart("/"), DynamicPart("tags", """[^/]+""",true)))
+  )
+  private[this] lazy val controllers_UserController_search4_invoker = createInvoker(
+    UserController_0.search(fakeValue[String], fakeValue[String]),
+    play.api.routing.HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.UserController",
+      "search",
+      Seq(classOf[String], classOf[String]),
+      "GET",
+      this.prefix + """searchEvents/""" + "$" + """term<[^/]+>/""" + "$" + """tags<[^/]+>""",
+      """""",
       Seq()
     )
   )
 
   // @LINE:16
-  private[this] lazy val controllers_FrontendController_assetOrDefault4_route = Route("GET",
+  private[this] lazy val controllers_UserController_getModel5_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("getModel")))
+  )
+  private[this] lazy val controllers_UserController_getModel5_invoker = createInvoker(
+    UserController_0.getModel(),
+    play.api.routing.HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.UserController",
+      "getModel",
+      Nil,
+      "GET",
+      this.prefix + """getModel""",
+      """""",
+      Seq()
+    )
+  )
+
+  // @LINE:19
+  private[this] lazy val controllers_FrontendController_assetOrDefault6_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), DynamicPart("file", """.+""",false)))
   )
-  private[this] lazy val controllers_FrontendController_assetOrDefault4_invoker = createInvoker(
+  private[this] lazy val controllers_FrontendController_assetOrDefault6_invoker = createInvoker(
     FrontendController_1.assetOrDefault(fakeValue[String]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -163,16 +201,28 @@ class Routes(
         controllers_UserController_signUp2_invoker.call(UserController_0.signUp(username, password, email))
       }
   
-    // @LINE:13
-    case controllers_UserController_testLogin3_route(params@_) =>
-      call { 
-        controllers_UserController_testLogin3_invoker.call(UserController_0.testLogin)
+    // @LINE:12
+    case controllers_UserController_createEvent3_route(params@_) =>
+      call(params.fromPath[String]("name", None), params.fromPath[String]("address", None), params.fromPath[String]("description", None), params.fromPath[Double]("price", None), params.fromPath[Integer]("maxTickets", None), params.fromPath[String]("tags", None)) { (name, address, description, price, maxTickets, tags) =>
+        controllers_UserController_createEvent3_invoker.call(UserController_0.createEvent(name, address, description, price, maxTickets, tags))
+      }
+  
+    // @LINE:14
+    case controllers_UserController_search4_route(params@_) =>
+      call(params.fromPath[String]("term", None), params.fromPath[String]("tags", None)) { (term, tags) =>
+        controllers_UserController_search4_invoker.call(UserController_0.search(term, tags))
       }
   
     // @LINE:16
-    case controllers_FrontendController_assetOrDefault4_route(params@_) =>
+    case controllers_UserController_getModel5_route(params@_) =>
+      call { 
+        controllers_UserController_getModel5_invoker.call(UserController_0.getModel())
+      }
+  
+    // @LINE:19
+    case controllers_FrontendController_assetOrDefault6_route(params@_) =>
       call(params.fromPath[String]("file", None)) { (file) =>
-        controllers_FrontendController_assetOrDefault4_invoker.call(FrontendController_1.assetOrDefault(file))
+        controllers_FrontendController_assetOrDefault6_invoker.call(FrontendController_1.assetOrDefault(file))
       }
   }
 }

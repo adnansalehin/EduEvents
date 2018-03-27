@@ -93,12 +93,12 @@ class App extends Component {
           <Route exact path="/sign_in" component={this.signIn} />
           <Route exact path="/sign_up" component={signUp} />
           <Route exact path="/about" component={about} />
-          <Route exact path={"/" + this.state.username} component={MemberHome} />
-          <Route exact path="/:member/account" component={MemberAccount} />
-          <Route exact path="/:member/my_events" component={MyEvents} />
-          <Route exact path="/:member/booked_events" component={BookedEvents} />
-          <Route exact path="/:member/favourited_events" component={FavouritedEvents} />
-          <Route exact path="/:member/create_events" component={CreateEvents} />
+          <Route exact path="/loggedIn" component={MemberHome} />
+          <Route exact path="/loggedIn/account" component={MemberAccount} />
+          <Route exact path="/loggedIn/my_events" component={MyEvents} />
+          <Route exact path="/loggedIn/booked_events" component={BookedEvents} />
+          <Route exact path="/loggedIn/favourited_events" component={FavouritedEvents} />
+          <Route exact path="/loggedIn/create_events" component={CreateEvents} />
         </div>
       </Router>
     );

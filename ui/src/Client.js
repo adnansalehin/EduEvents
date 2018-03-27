@@ -8,7 +8,7 @@ function getSummary(cb) {
     .then(cb);
 }
 
-function postLogin(username, password) {
+async function postLogin(username, password) {
 
   var url = "/login/" + username + "/" + password
 
@@ -17,7 +17,7 @@ function postLogin(username, password) {
     .then(parseJSON)
 }
 
-function signupUser(username, password, email) {
+async function signupUser(username, password, email) {
 
   var url = "/signup/" + username + "/" + password + "/" + email;
 
@@ -26,11 +26,31 @@ function signupUser(username, password, email) {
     .then(parseJSON)
 }
 
-//Test function
-function testLogin() {
-  return fetch('/testLogin')
+async function createEvent(name, address, description, price, maxTickets, tag) {
+
+  var url = "/createEvent/" + name + "/" + address + "/" + description + "/" + price + "/" + maxTickets + "/" +tag;
+
+  return await fetch(url)
     .then(checkStatus)
-    .then(parseJSON);
+    .then(parseJSON)
+}
+
+async function searchEvents(term, tags) {
+
+  var url = "/searchEvents/" + term + "/" + tags;
+
+  return await fetch(url)
+    .then(checkStatus)
+    .then(parseJSON)
+}
+
+async function getModel() {
+
+  var url = "/getModel";
+
+  return await fetch(url)
+    .then(checkStatus)
+    .then(parseJSON)
 }
 
 function checkStatus(response) {
@@ -50,6 +70,6 @@ function parseJSON(response) {
 
 //Exported variable
 //Define the methods that components need access to.
-const Client = { getSummary, postLogin, signupUser };
+const Client = { getSummary, postLogin, signupUser, createEvent, searchEvents };
 
 export default Client;

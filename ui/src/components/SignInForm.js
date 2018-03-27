@@ -2,7 +2,7 @@ import React from 'react';
 
 import Client from '../Client';
 
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 
 var style = {
 
@@ -50,11 +50,13 @@ class SignInForm extends React.Component {
 
   async onSubmit(e) {
     e.preventDefault();
-    this.logInUser();
-    //Can console log this to see what is passed.
-    //Client.postLogin(this.state.username, this.state.password);
-    //Test login variables sent
-    //console.log(Client.testLogin());
+    var response = Client.postLogin(this.state.username, this.state.password);
+    console.log(response);
+    if (response) {
+      this.props.history.push("/loggedIn");
+    } else {
+      this.props.history.push("/sign_in");
+    }
   }
 
   render() {
@@ -93,4 +95,4 @@ class SignInForm extends React.Component {
   }
 }
 
-export default SignInForm;
+export default withRouter(SignInForm);
