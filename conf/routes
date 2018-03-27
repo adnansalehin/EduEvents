@@ -9,8 +9,11 @@ GET		/login/:username/:password			controllers.UserController.login(username, pas
 
 GET		/signup/:username/:password/:email	controllers.UserController.signUp(username, password, email)
 
-#Test url can be removed
-GET		/testLogin							controllers.UserController.testLogin
+GET		/createEvent/:name/:address/:description/:price/:maxTickets/:tags		controllers.UserController.createEvent(name, address, description, price: Double, maxTickets: Integer, tags)
+
+GET		/searchEvents/:term/:tags			controllers.UserController.search(term, tags)
+
+GET		/getModel							controllers.UserController.getModel()
 
 # Serve static assets under public directory
 GET     /*file								controllers.FrontendController.assetOrDefault(file)

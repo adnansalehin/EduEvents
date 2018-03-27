@@ -1,20 +1,19 @@
 package inventories;
 
-import models.Member;
-import models.Event;
+import models.*;
+import inventories.*;
 import java.util.Collection;
 import java.util.HashSet;
 import com.fasterxml.jackson.databind.JsonNode;
 import play.libs.Json;
 import play.mvc.*;
 import java.util.*;
-
 public class EventInventory {
-	EventInventory inventory = new EventInventory();
+	private static EventInventory inventory = new EventInventory();
 	private HashSet<Event> events = new HashSet<Event>();
 	private EventInventory(){}
 
-	public EventInventory getInstance()
+	public static  EventInventory getInstance()
 	{
 		return inventory;
 	}
@@ -27,8 +26,8 @@ public class EventInventory {
 		this.events = events;
 	}
 
-	public void createEvent(String name, String address, String description, double price, int maxTickets, String tags, String blacklist, String whitelist){
-
+	public void createEvent(Event event){
+		events.add(event);
 	}
 
 	public Event getEventById(int id)

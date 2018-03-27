@@ -1,19 +1,17 @@
 package inventories;
 
-import lombok.Data;
 import models.Report;
 import models.Event;
 import java.util.Collection;
 import java.util.HashSet;
 
-@Data
 public class ReportInventory {
-	private ReportInventory inventory = new ReportInventory();
+	private static ReportInventory inventory = new ReportInventory();
 	private Collection<Report> report = new HashSet<>();
 
 	private ReportInventory(){}
 
-	public ReportInventory getInstance()
+	public static ReportInventory getInstance()
 	{
 		return inventory;
 	}
