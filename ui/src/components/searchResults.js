@@ -44,39 +44,52 @@ class SearchResults extends React.Component {
 
   constructor(props) {
     super(props);
+    this.state = ({
+      data: []
+    })
 
-    this.displayEvents = this.displayEvents.bind(this);
+    this.componentWillMount = this.componentWillMount.bind(this);
   }
 
-  component() {
-    return (
-      <div style={style.inlineBlock}>
-        Events
-      </div>
-    );
+  async componentWillMount() {
+
+    var response = await Client.searchEvents("python", "lel");
+
+    this.setState({
+      data: response
+    })
   }
 
   async displayEvents() {
-    //var list = [];
 
-    //for (var i = 0; i < 20; i++){
-    //  list.push(this.component());
-    //}
+    var response = await Client.searchEvents("python", "lel");
 
-    //return list;
-    var response = await Client.searchEvents(this.props.search, this.props.tag);
-    console.log(response);
+    return response;
+
   }
 
   //Strange interaction between this component and subheader so remade subheader in this component.
   render() {
+
+    var list = [];
+
+    var data = this.displayEvents();
+
+
+
+    for (var i = 0; i < data.length; i++) {
+      list.push(
+        <Event name={data[i].name} />
+      )
+    }
+
     return (
       <div style={style.body}>
         <div style={style.subHeaderContainer}>
           <h4 style={style.subHeader}>Search Results</h4>
         </div>
         <div style={style.content}>
-          {this.displayEvents()}
+          {list}
         </div>
       </div>
     );
