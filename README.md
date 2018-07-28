@@ -1,31 +1,17 @@
-[![MIT License][license-badge]][LICENSE]
 
-# Java Play React Seed
+# EduEvents
 
-> Use play framework to develop the web application backend/services and frontend using React Create App, all in a totally integrated workflow and single unified console. This approach will deliver perfect development experience without CORS hassle. 
+## Frameworks and libraries used: 
 
-Read more @ http://bit.ly/2A1AzEq
-
-[![Java Play React Seed](https://github.com/yohangz/java-play-react-seed/blob/master/react.png)](http://bit.ly/2A1AzEq)
-
-## Used Summary
-
+* [![Java Play React Seed](https://github.com/yohangz/java-play-react-seed/blob/master/react.png)](http://bit.ly/2A1AzEq)
 * [Play Framework: 2.6.7](https://www.playframework.com/documentation/2.6.x/Home)
 * [React: 16.2.0](https://reactjs.org/)
 * [Create React App: 1.0.17](https://github.com/facebookincubator/create-react-app)
 
-## How to use it? 
-
-### Prerequisites
+### Prerequisites for running
 
 * [Node.js](https://nodejs.org/)
 * [JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
-
-### Let's get started,
-
-* Fork or clone this repository.
-
-* Used any of the following [SBT](http://www.scala-sbt.org/) commands which will intern trigger frontend associated npm scripts.
 
 ```
     sbt clean           # Clean existing build artifacts
@@ -158,29 +144,3 @@ GET        /*file        controllers.FrontendController.assetOrDefault(file)
 * Simply replace the ui directory with the build of your choice
 * Make output directory ROOT/public/
 * Implement a proxy to localhost:9000
-
-## Looking for some other frontend framework or language choice
-
-* [Scala Play React Seed](https://github.com/yohangz/scala-play-react-seed)
-* [Scala Play Angular Seed](https://github.com/yohangz/scala-play-angular-seed)
-* [Java Play Angular Seed](https://github.com/yohangz/java-play-angular-seed)
-* [Scala Play Vuejs Seed](https://github.com/duncannevin/scala-play-vue-seed) by [Duncan Nevin](https://github.com/duncannevin)
-* [Java Play Vuejs Seed](https://github.com/duncannevin/java-play-vue-seed) by [Duncan Nevin](https://github.com/duncannevin)
-
-## Contributors
-
-<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
-|[<img src="https://avatars2.githubusercontent.com/u/5279079?s=400&v=4" width="100px;"/><br /><sub>Yohan Gomez</sub>][yohan-profile]| [<img src="https://avatars2.githubusercontent.com/u/6312524?s=400&u=efc9267c6f903c379fafaaf7b3b0d9a939474c01&v=4" width="100px;"/><br /><sub>Lahiru Jayamanna</sub>][lahiru-profile]<br />| [<img src="https://avatars0.githubusercontent.com/u/3881403?s=400&v=4" width="100px;"/><br /><sub>Gayan Attygalla</sub>](https://github.com/Arty26)|
-| :---: | :---: | :---: |
-<!-- ALL-CONTRIBUTORS-LIST:END -->
-
-## License
-
-This software is licensed under the MIT license
-
-[license-badge]: http://img.shields.io/badge/license-MIT-blue.svg?style=flat
-[license]: https://github.com/yohangz/java-play-react-seed/blob/master/README.md
-
-[yohan-profile]: https://github.com/yohangz
-[lahiru-profile]: https://github.com/lahiruz
-[gayan-profile]: https://github.com/Arty26
