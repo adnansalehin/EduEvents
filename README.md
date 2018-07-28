@@ -3,7 +3,7 @@
 
 ## Frameworks and libraries used: 
 
-* [![Java Play React Seed](https://github.com/yohangz/java-play-react-seed/blob/master/react.png)](http://bit.ly/2A1AzEq)
+* [![Java Play React Seed](http://bit.ly/2A1AzEq)
 * [Play Framework: 2.6.7](https://www.playframework.com/documentation/2.6.x/Home)
 * [React: 16.2.0](https://reactjs.org/)
 * [Create React App: 1.0.17](https://github.com/facebookincubator/create-react-app)
