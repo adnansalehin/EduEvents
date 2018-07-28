@@ -84,9 +84,12 @@ class SearchField extends React.Component {
             name="tag"
             style={style.selectList}
           >
-            <option value="">tag...</option>
-            <option value="tag1">tag1</option>
-            <option value="tag2">tag2</option>
+            <option value={null}>tag...</option>
+            <option value="science">Science</option>
+            <option value="computer science">Computer Science</option>
+            <option value="history">History</option>
+            <option value="maths">Maths</option>
+            <option value="language">Language</option>
           </select>
         </div>
 

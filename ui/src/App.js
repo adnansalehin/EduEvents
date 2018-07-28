@@ -10,6 +10,7 @@ import About from './components/About';
 import SignIn from './components/SignIn';
 import SignUp from './components/SignUp';
 import SearchResults from './components/SearchResults';
+import SuccessfulSignUp from './components/SuccessfulSignUp';
 
 import MemberRoot from './components/MemberInterface/MemberRoot';
 import MemberHome from './components/MemberInterface/MemberHome';
@@ -33,14 +34,6 @@ const about = () => {
   return (
     <Root>
       <About />
-    </Root>
-  );
-}
-
-const successfulSignUp = () => {
-  return (
-    <Root>
-      <h4>Sign up successful</h4>
     </Root>
   );
 }
@@ -146,7 +139,7 @@ class App extends Component {
           <Route exact path="/sign_in" component={this.signIn} />
           <Route exact path="/sign_in_failed" component={this.signInFailed} />
           <Route exact path="/sign_up" component={signUp} />
-          <Route exact path="/sign_up_successful" component={successfulSignUp} />
+          <Route exact path="/sign_up_successful" component={SuccessfulSignUp} />
           <Route exact path="/sign_up_failed" component={failedSignUp} />
           <Route exact path="/about" component={about} />
           <Route exact path={"/loggedin"} component={MemberHome} />
